@@ -1,0 +1,795 @@
+[
+  {
+    "id": "cas-a",
+    "name": "Cas A",
+    "ra_deg": 350.85,
+    "dec_deg": 58.815,
+    "type": "SNR-Cassiopeia A",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "One of the strongest compact sources",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "cyg-a",
+    "name": "Cyg A",
+    "ra_deg": 299.8666666666667,
+    "dec_deg": 40.73388888888889,
+    "type": "3C 405",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Powerful extragalactic radio galaxy",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "tau-a",
+    "name": "Tau A",
+    "ra_deg": 83.63333333333333,
+    "dec_deg": 22.014444444444443,
+    "type": "3C 144",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Crab Nebula SNR",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "orion-a",
+    "name": "Orion A",
+    "ra_deg": 83.82083333333333,
+    "dec_deg": 4.608888888888888,
+    "type": "3C 145",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Extended H II region",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "virgo-a",
+    "name": "Virgo A",
+    "ra_deg": 187.70416666666665,
+    "dec_deg": 12.39111111111111,
+    "type": "3C 274",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "M87 galaxy; prominent jet source",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "cygnus-x",
+    "name": "Cygnus X",
+    "ra_deg": 300.0,
+    "dec_deg": 40.0,
+    "type": "Cygnus X",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Very bright extended region",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "sagittarius-a",
+    "name": "Sagittarius A",
+    "ra_deg": 265.5375,
+    "dec_deg": 27.166666666666668,
+    "type": "CTB 42",
+    "category": "beginner",
+    "freq_ghz": 0.96,
+    "notes": "Galactic Centre region (extended)",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "centaurus-a",
+    "name": "Centaurus A",
+    "ra_deg": 200.61666666666667,
+    "dec_deg": 41.233333333333334,
+    "type": "CTA 59",
+    "category": "beginner",
+    "freq_ghz": 0.96,
+    "notes": "NGC 5128",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-400",
+    "name": "3C 400",
+    "ra_deg": 290.925,
+    "dec_deg": 14.509166666666667,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "SNR complex",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-392",
+    "name": "3C 392",
+    "ra_deg": 284.025,
+    "dec_deg": 1.3,
+    "type": "SNR",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-5690",
+    "name": "NRAO 5690",
+    "ra_deg": 278.75,
+    "dec_deg": 6.666666666666667,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-390-2",
+    "name": "3C 390.2",
+    "ra_deg": 281.9916666666667,
+    "dec_deg": 0.05472222222222221,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-403-2",
+    "name": "3C 403.2",
+    "ra_deg": 298.55,
+    "dec_deg": 32.9,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-147-1",
+    "name": "3C 147.1",
+    "ra_deg": 85.42916666666667,
+    "dec_deg": 0.09527777777777775,
+    "type": "Orion B",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Flame Nebula region",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-353",
+    "name": "3C 353",
+    "ra_deg": 260.1166666666667,
+    "dec_deg": -0.9797222222222223,
+    "type": "D Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-6210",
+    "name": "NRAO 6210",
+    "ra_deg": 300.425,
+    "dec_deg": 33.28333333333333,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-387",
+    "name": "3C 387",
+    "ra_deg": 280.25,
+    "dec_deg": 4.733333333333333,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-123",
+    "name": "3C 123",
+    "ra_deg": 69.26666666666668,
+    "dec_deg": 29.670555555555556,
+    "type": "Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-5980",
+    "name": "NRAO 5980",
+    "ra_deg": 287.5791666666667,
+    "dec_deg": 9.06861111111111,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-273",
+    "name": "3C 273",
+    "ra_deg": 187.27916666666664,
+    "dec_deg": 2.0524999999999998,
+    "type": "Quasar",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Very bright quasar",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-6500",
+    "name": "NRAO 6500",
+    "ra_deg": 318.0875,
+    "dec_deg": 52.48277777777778,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-348",
+    "name": "3C 348",
+    "ra_deg": 252.78333333333336,
+    "dec_deg": 4.9927777777777775,
+    "type": "D Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-10",
+    "name": "3C 10",
+    "ra_deg": 6.304166666666667,
+    "dec_deg": 64.14500000000001,
+    "type": "Tycho's SNR",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-218",
+    "name": "3C 218",
+    "ra_deg": 139.525,
+    "dec_deg": 11.904444444444444,
+    "type": "D Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-139-1",
+    "name": "3C 139.1",
+    "ra_deg": 80.60416666666666,
+    "dec_deg": 33.49861111111111,
+    "type": "Emission Nebula",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-6620",
+    "name": "NRAO 6620",
+    "ra_deg": 322.35,
+    "dec_deg": 50.8,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-6020",
+    "name": "NRAO 6020",
+    "ra_deg": 288.925,
+    "dec_deg": 11.033333333333333,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-398",
+    "name": "3C 398",
+    "ra_deg": 287.7875,
+    "dec_deg": 9.106666666666666,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-5720",
+    "name": "NRAO 5720",
+    "ra_deg": 279.5625,
+    "dec_deg": 5.206388888888889,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-153-1",
+    "name": "3C 153.1",
+    "ra_deg": 92.4,
+    "dec_deg": 20.488611111111112,
+    "type": "Emission Nebula",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-1560",
+    "name": "NRAO 1560",
+    "ra_deg": 61.208333333333336,
+    "dec_deg": 51.37166666666667,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-147",
+    "name": "3C 147",
+    "ra_deg": 85.65,
+    "dec_deg": 49.85194444444445,
+    "type": "Quasar",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Standard flux calibrator",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-295",
+    "name": "3C 295",
+    "ra_deg": 212.8375,
+    "dec_deg": 52.2025,
+    "type": "D Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-391",
+    "name": "3C 391",
+    "ra_deg": 282.34166666666664,
+    "dec_deg": -0.9225,
+    "type": "SNR",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-1650",
+    "name": "NRAO 1650",
+    "ra_deg": 62.77083333333334,
+    "dec_deg": 51.15222222222222,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-161",
+    "name": "3C 161",
+    "ra_deg": 96.79166666666667,
+    "dec_deg": 4.115277777777778,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-5790",
+    "name": "NRAO 5790",
+    "ra_deg": 281.52916666666664,
+    "dec_deg": 1.2766666666666666,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-270",
+    "name": "3C 270",
+    "ra_deg": 184.84583333333333,
+    "dec_deg": 5.825833333333333,
+    "type": "Elliptical Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-48",
+    "name": "3C 48",
+    "ra_deg": 24.420833333333334,
+    "dec_deg": 33.15972222222222,
+    "type": "Quasar",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Standard calibrator",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-111",
+    "name": "3C 111",
+    "ra_deg": 64.58749999999999,
+    "dec_deg": 38.026666666666664,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-286",
+    "name": "3C 286",
+    "ra_deg": 202.78333333333336,
+    "dec_deg": 30.509166666666665,
+    "type": "Quasar",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Primary flux calibration standard",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-5840",
+    "name": "NRAO 5840",
+    "ra_deg": 283.3333333333333,
+    "dec_deg": 1.2483333333333333,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-84",
+    "name": "3C 84",
+    "ra_deg": 49.949999999999996,
+    "dec_deg": 41.51166666666666,
+    "type": "Seyfert Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-196",
+    "name": "3C 196",
+    "ra_deg": 123.4,
+    "dec_deg": 48.2175,
+    "type": "Quasar",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-380",
+    "name": "3C 380",
+    "ra_deg": 277.3833333333334,
+    "dec_deg": 48.74638888888889,
+    "type": "Quasar",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-5890",
+    "name": "NRAO 5890",
+    "ra_deg": 285.45,
+    "dec_deg": 1.781388888888889,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-396",
+    "name": "3C 396",
+    "ra_deg": 285.9916666666667,
+    "dec_deg": 5.375,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-397",
+    "name": "3C 397",
+    "ra_deg": 286.9166666666667,
+    "dec_deg": 7.144166666666667,
+    "type": "SNR",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-409",
+    "name": "3C 409",
+    "ra_deg": 303.6166666666667,
+    "dec_deg": 23.58277777777778,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-33",
+    "name": "3C 33",
+    "ra_deg": 17.220833333333335,
+    "dec_deg": 13.337222222222223,
+    "type": "Elliptical Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-20",
+    "name": "3C 20",
+    "ra_deg": 10.7875,
+    "dec_deg": 52.059444444444445,
+    "type": "Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-5670",
+    "name": "NRAO 5670",
+    "ra_deg": 278.0,
+    "dec_deg": 1.9333333333333333,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-390-3",
+    "name": "3C 390.3",
+    "ra_deg": 280.5375,
+    "dec_deg": 79.7713888888889,
+    "type": "N Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-433",
+    "name": "3C 433",
+    "ra_deg": 320.9375,
+    "dec_deg": 25.071666666666665,
+    "type": "D Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-434-1",
+    "name": "3C 434.1",
+    "ra_deg": 321.2666666666667,
+    "dec_deg": 51.88111111111111,
+    "type": "SNR",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-279",
+    "name": "3C 279",
+    "ra_deg": 194.04583333333332,
+    "dec_deg": 4.210555555555556,
+    "type": "Quasar",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-6070",
+    "name": "NRAO 6070",
+    "ra_deg": 289.525,
+    "dec_deg": 12.2,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-452",
+    "name": "3C 452",
+    "ra_deg": 341.45416666666665,
+    "dec_deg": 39.687777777777775,
+    "type": "Elliptical Galaxy",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-454-3",
+    "name": "3C 454.3",
+    "ra_deg": 343.4916666666667,
+    "dec_deg": 16.148333333333333,
+    "type": "Quasar",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "nrao-6010",
+    "name": "NRAO 6010",
+    "ra_deg": 288.58333333333337,
+    "dec_deg": 11.151666666666667,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "3c-410",
+    "name": "3C 410",
+    "ra_deg": 305.02916666666664,
+    "dec_deg": 29.703888888888887,
+    "type": "radio source",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  }
+]
