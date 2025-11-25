@@ -1,0 +1,357 @@
+---
+
+---
+
+<div class="visibility-tool" data-component="visibility-tool">
+  <form class="vis-form">
+    <label>
+      Latitude (°)
+      <input type="number" name="latitude" value="0" step="0.1" min="-90" max="90" />
+    </label>
+    <label>
+      Longitude (° East)
+      <input type="number" name="longitude" value="0" step="0.1" min="-180" max="180" />
+    </label>
+    <label>
+      Minimum elevation (°)
+      <input type="number" name="minElevation" value="20" step="1" min="0" max="60" />
+    </label>
+    <label>
+      Date &amp; Time (UTC)
+      <input type="datetime-local" name="datetime" />
+    </label>
+    <label class="time-mode">
+      <input type="checkbox" name="useNow" checked />
+      Use current time
+    </label>
+  </form>
+
+  <div class="location-actions">
+    <button type="button" data-action="useLocation">Use my location</button>
+    <span data-field="status"></span>
+  </div>
+
+  <div class="vis-summary">
+    <p data-field="summary">Loading sources…</p>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Type</th>
+          <th>Expert level</th>
+          <th>Altitude</th>
+          <th>Azimuth</th>
+          <th>Transit</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody data-field="results">
+        <tr>
+          <td colspan="6">Loading…</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="module">
+    import { localSiderealTime, raDecToAltAz } from "/src/lib/astroTime.ts";
+
+    const COMPONENT_SELECTOR = '[data-component="visibility-tool"]';
+    const DATA_URL = "/data/radio_sources_basic.json";
+    const SOURCE_ICONS = {
+      "radio galaxy": "🌀",
+      "supernova remnant": "💥",
+      "h ii region": "☁️",
+      pulsar: "⏱️",
+      "galactic center": "✨",
+    };
+    const LEVEL_ICONS = {
+      beginner: "🌱",
+      advanced: "🚀",
+    };
+
+    async function loadSources() {
+      if (window._astron00bSources) return window._astron00bSources;
+      const resp = await fetch(DATA_URL);
+      if (!resp.ok) throw new Error(`Failed to load sources (${resp.status})`);
+      const data = await resp.json();
+      window._astron00bSources = data;
+      return data;
+    }
+
+    const formatAlt = (deg) => `${deg.toFixed(1)}°`;
+    const formatAz = (deg) => `${deg.toFixed(0)}°`;
+    const formatTime = (date) => date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+    function initVisibilityTool(root) {
+      const form = root.querySelector(".vis-form");
+      if (!form) return;
+      const useNow = form.querySelector('input[name="useNow"]');
+      const dateInput = form.querySelector('input[name="datetime"]');
+      const latInput = form.querySelector('input[name="latitude"]');
+      const lonInput = form.querySelector('input[name="longitude"]');
+      const minElInput = form.querySelector('input[name="minElevation"]');
+      const statusField = root.querySelector('[data-field="status"]');
+      const summaryField = root.querySelector('[data-field="summary"]');
+      const tableBody = root.querySelector('[data-field="results"]');
+      const useLocationBtn = root.querySelector('[data-action="useLocation"]');
+
+      if (!useNow || !dateInput || !latInput || !lonInput || !minElInput || !summaryField || !tableBody) {
+        console.warn("Visibility tool missing elements");
+        return;
+      }
+
+      const setStatus = (text, isError = false) => {
+        if (!statusField) return;
+        statusField.textContent = text;
+        statusField.style.color = isError ? "var(--an-pink)" : "var(--an-grey)";
+      };
+
+      const applyLocation = (lat, lon) => {
+        latInput.value = lat.toFixed(3);
+        lonInput.value = lon.toFixed(3);
+        setStatus(`Using ${lat.toFixed(2)}, ${lon.toFixed(2)}`);
+        update();
+      };
+
+      if (useLocationBtn) {
+        useLocationBtn.addEventListener("click", () => {
+          if (!navigator.geolocation) {
+            setStatus("Geolocation not supported.", true);
+            return;
+          }
+          setStatus("Fetching location…");
+          navigator.geolocation.getCurrentPosition(
+            (pos) => applyLocation(pos.coords.latitude, pos.coords.longitude),
+            () => setStatus("Could not fetch location.", true),
+            { enableHighAccuracy: true, timeout: 5000, maximumAge: 60_000 }
+          );
+        });
+      }
+
+      const renderRows = (entries) => {
+        if (!entries.length) {
+          tableBody.innerHTML = `<tr><td colspan="7">No sources.</td></tr>`;
+          return;
+        }
+        tableBody.innerHTML = entries
+          .map((entry) => {
+            const visibilityLabel = entry.visible ? "Visible" : "Below horizon";
+            const sourceIcon = SOURCE_ICONS[entry.type.toLowerCase()] || "📡";
+            const levelIcon = LEVEL_ICONS[entry.category.toLowerCase()] || "⭐";
+            return `
+              <tr class="${entry.visible ? "visible" : ""}">
+                <td>
+                  <strong>${entry.name}</strong>
+                  <div class="notes">${entry.notes}</div>
+                </td>
+                <td title="${entry.type}">
+                  <span class="source-icon" aria-label="${entry.type}" role="img">${sourceIcon}</span>
+                </td>
+                <td title="${entry.category}">
+                  <span class="source-icon" aria-label="${entry.category}" role="img">${levelIcon}</span>
+                </td>
+                <td>${formatAlt(entry.altitude)}</td>
+                <td>${formatAz(entry.azimuth)}</td>
+                <td>${formatTime(entry.transitDate)}</td>
+                <td>${visibilityLabel}</td>
+              </tr>
+            `;
+          })
+          .join("");
+      };
+
+      const update = async () => {
+        summaryField.textContent = "Computing visibility…";
+        dateInput.disabled = useNow.checked;
+
+        let sources = [];
+        try {
+          sources = await loadSources();
+        } catch (err) {
+          console.error(err);
+          summaryField.textContent = "Failed to load source catalog.";
+          tableBody.innerHTML = `<tr><td colspan="7">Could not load sources.</td></tr>`;
+          return;
+        }
+
+        const now = new Date();
+        const date = useNow.checked && !dateInput.value ? now : new Date(dateInput.value || now.toISOString());
+        const latitude = Number(latInput.value) || 0;
+        const longitude = Number(lonInput.value) || 0;
+        const minElevation = Number(minElInput.value) || 0;
+        const lst = localSiderealTime(date, { latitudeDeg: latitude, longitudeDeg: longitude });
+
+        const entries = sources.map((src) => {
+          const raHours = src.ra_deg / 15;
+          const hHours = ((raHours - lst) % 24 + 24) % 24;
+          const transitDate = new Date(date.getTime() + hHours * 3600 * 1000);
+          const { altitude, azimuth } = raDecToAltAz(lst, src.ra_deg, src.dec_deg, {
+            latitudeDeg: latitude,
+            longitudeDeg: longitude,
+          });
+          return {
+            ...src,
+            altitude,
+            azimuth,
+            visible: altitude >= minElevation,
+            transitDate,
+          };
+        });
+
+        entries.sort((a, b) => {
+          if (a.visible === b.visible) return b.altitude - a.altitude;
+          return a.visible ? -1 : 1;
+        });
+
+        const visibleCount = entries.filter((e) => e.visible).length;
+        summaryField.textContent = `${visibleCount} / ${entries.length} sources above ${minElevation}°`;
+        renderRows(entries);
+      };
+
+      form.addEventListener("input", update);
+      setInterval(update, 60_000);
+      update();
+    }
+
+    function initAll() {
+      document.querySelectorAll(COMPONENT_SELECTOR).forEach((root) => {
+        if (!root._visibilityInitialized) {
+          initVisibilityTool(root);
+          root._visibilityInitialized = true;
+        }
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initAll, { once: true });
+    } else {
+      initAll();
+    }
+
+    document.addEventListener("astro:after-swap", initAll);
+    document.addEventListener("astro:page-load", initAll);
+  </script>
+</div>
+
+<style>
+  .visibility-tool {
+    border: 1px solid var(--an-blue);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background: rgba(10, 110, 136, 0.08);
+  }
+
+  .vis-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+  }
+
+  input[type="number"],
+  input[type="datetime-local"] {
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--an-white);
+  }
+
+  input[type="checkbox"] {
+    margin-right: 0.4rem;
+  }
+
+  .location-actions {
+    margin: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .location-actions button {
+    border: 1px solid var(--an-pink);
+    background: transparent;
+    color: var(--an-pink);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--an-font-body);
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .location-actions button:hover {
+    background: var(--an-pink);
+    color: var(--an-navy);
+  }
+
+  .vis-summary {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--an-grey);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.75rem;
+  }
+
+  th {
+    text-align: left;
+    padding: 0 0.6rem 0.4rem;
+    font-family: var(--an-font-pixel);
+    font-size: 0.8rem;
+    color: var(--an-cyan);
+  }
+
+  td {
+    padding: 0.85rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  tbody tr {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 0.65rem;
+    overflow: hidden;
+  }
+
+  tbody tr td:first-child {
+    border-top-left-radius: 0.65rem;
+    border-bottom-left-radius: 0.65rem;
+  }
+
+  tbody tr td:last-child {
+    border-top-right-radius: 0.65rem;
+    border-bottom-right-radius: 0.65rem;
+  }
+
+  tbody tr.visible td {
+    background: rgba(105, 245, 255, 0.08);
+    border-bottom: 1px solid rgba(105, 245, 255, 0.3);
+  }
+
+  tbody tr:not(.visible) {
+    opacity: 0.6;
+  }
+
+  .source-icon {
+    font-size: 1.4rem;
+  }
+</style>
+
+

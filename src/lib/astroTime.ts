@@ -4,6 +4,8 @@ export interface GeoLocation {
 }
 
 const DEG_PER_HOUR = 15;
+const RAD = Math.PI / 180;
+const DEG = 180 / Math.PI;
 
 function toUtc(date: Date): Date {
   return new Date(date.getTime());
@@ -63,6 +65,39 @@ export function hoursToHms(hours: number): { h: number; m: number; s: number } {
   const m = Math.floor((totalSeconds % 3600) / 60);
   const s = Math.floor(totalSeconds % 60);
   return { h, m, s };
+}
+
+function wrapHours(hours: number): number {
+  return ((hours % 24) + 24) % 24;
+}
+
+export function raDecToAltAz(
+  lstHours: number,
+  raDeg: number,
+  decDeg: number,
+  loc: GeoLocation
+): { altitude: number; azimuth: number } {
+  const raHours = raDeg / DEG_PER_HOUR;
+  const hHours = wrapHours(lstHours - raHours);
+  const hRad = hHours * DEG_PER_HOUR * RAD;
+  const decRad = decDeg * RAD;
+  const latRad = loc.latitudeDeg * RAD;
+
+  const sinAlt =
+    Math.sin(decRad) * Math.sin(latRad) +
+    Math.cos(decRad) * Math.cos(latRad) * Math.cos(hRad);
+  const altRad = Math.asin(sinAlt);
+
+  const cosAz =
+    (Math.sin(decRad) - Math.sin(altRad) * Math.sin(latRad)) /
+    (Math.cos(altRad) * Math.cos(latRad));
+  const sinAz = (-Math.cos(decRad) * Math.sin(hRad)) / Math.cos(altRad);
+  const azRad = Math.atan2(sinAz, cosAz);
+
+  return {
+    altitude: altRad * DEG,
+    azimuth: ((azRad * DEG) + 360) % 360,
+  };
 }
 
 
