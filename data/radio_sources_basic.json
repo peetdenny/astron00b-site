@@ -1,1471 +1,795 @@
 [
   {
     "id": "cas-a",
-    "name": "Cassiopeia A",
+    "name": "Cas A",
     "ra_deg": 350.85,
-    "dec_deg": 58.82,
-    "type": "supernova remnant",
+    "dec_deg": 58.815,
+    "type": "SNR-Cassiopeia A",
     "category": "beginner",
-    "freq_ghz": 1.4,
-    "notes": "One of the brightest radio sources in the sky; great calibration target for continuum observations.",
+    "freq_ghz": 1.42,
+    "notes": "One of the strongest compact sources",
     "refs": [
-      "https://astronomy.swin.edu.au/cosmos/c/cassiopeia+a"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
     "id": "cyg-a",
-    "name": "Cygnus A",
-    "ra_deg": 299.87,
-    "dec_deg": 40.73,
-    "type": "radio galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.4,
-    "notes": "Powerful extragalactic radio source; visible with modest dishes.",
-    "refs": [
-      "https://heasarc.gsfc.nasa.gov/W3Browse/all/cygnusa.html"
-    ]
-  },
-  {
-    "id": "taurus-a",
-    "name": "Taurus A (Crab Nebula)",
-    "ra_deg": 83.63,
-    "dec_deg": 22.01,
-    "type": "supernova remnant",
-    "category": "beginner",
-    "freq_ghz": 1.4,
-    "notes": "Bright remnant with both continuum emission and pulsar activity; accessible to small dishes.",
-    "refs": [
-      "https://science.nasa.gov/missions/chandra/crab-nebula/"
-    ]
-  },
-  {
-    "id": "sgr-a",
-    "name": "Sagittarius A / Galactic Center",
-    "ra_deg": 266.42,
-    "dec_deg": -28.94,
-    "type": "galactic center",
+    "name": "Cyg A",
+    "ra_deg": 299.8666666666667,
+    "dec_deg": 40.73388888888889,
+    "type": "3C 405",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Dense region rich in H I emission; prime target for exploring galactic rotation curves.",
+    "notes": "Powerful extragalactic radio galaxy",
     "refs": [
-      "https://www.esa.int/Science_Exploration/Space_Science/The_Milky_Way_s_centre"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+    ]
+  },
+  {
+    "id": "tau-a",
+    "name": "Tau A",
+    "ra_deg": 83.63333333333333,
+    "dec_deg": 22.014444444444443,
+    "type": "3C 144",
+    "category": "beginner",
+    "freq_ghz": 1.42,
+    "notes": "Crab Nebula SNR",
+    "refs": [
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
     "id": "orion-a",
-    "name": "Orion Nebula (M42)",
-    "ra_deg": 83.82,
-    "dec_deg": -5.39,
-    "type": "H II region",
+    "name": "Orion A",
+    "ra_deg": 83.82083333333333,
+    "dec_deg": 4.608888888888888,
+    "type": "3C 145",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Strong thermal emission; pairs well with optical observations for outreach.",
+    "notes": "Extended H II region",
     "refs": [
-      "https://www.cv.nrao.edu/course/astr534/Orion.html"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
     "id": "virgo-a",
-    "name": "Virgo A (M87)",
-    "ra_deg": 187.71,
-    "dec_deg": 12.39,
-    "type": "radio galaxy",
+    "name": "Virgo A",
+    "ra_deg": 187.70416666666665,
+    "dec_deg": 12.39111111111111,
+    "type": "3C 274",
     "category": "beginner",
-    "freq_ghz": 1.4,
-    "notes": "Massive galaxy with famous jet; bright radio core helpful for pointing checks.",
-    "refs": [
-      "https://science.nasa.gov/resource/messier-87-m87-virgo-a-ngc-4486/"
-    ]
-  },
-  {
-    "id": "psr-b0329+54",
-    "name": "PSR B0329+54",
-    "ra_deg": 53.245,
-    "dec_deg": 54.579,
-    "type": "pulsar",
-    "category": "advanced",
-    "freq_ghz": 0.4,
-    "notes": "Bright northern pulsar detectable with larger amateur arrays; aspirational target.",
-    "refs": [
-      "https://www.atnf.csiro.au/research/pulsar/psrcat/"
-    ]
-  },
-  {
-    "id": "vela-pulsar",
-    "name": "Vela Pulsar",
-    "ra_deg": 128.835,
-    "dec_deg": -45.176,
-    "type": "pulsar",
-    "category": "advanced",
-    "freq_ghz": 0.6,
-    "notes": "Southern hemisphere pulsar; requires high sensitivity but defines the path toward timing experiments.",
-    "refs": [
-      "https://www.nasa.gov/image-article/vela-pulsar/"
-    ]
-  },
-  {
-    "id": "galmhim000mp00",
-    "name": "Galactic H I l=0\u00b0, b=0\u00b0",
-    "ra_deg": 266.4049948010461,
-    "dec_deg": -28.936173960138685,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 0\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim008mp00",
-    "name": "Galactic H I l=8\u00b0, b=0\u00b0",
-    "ra_deg": 270.8916676315983,
-    "dec_deg": -22.034605847869447,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 8\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim016mp00",
-    "name": "Galactic H I l=16\u00b0, b=0\u00b0",
-    "ra_deg": 274.9564149326961,
-    "dec_deg": -15.022352496708619,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 16\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim024mp00",
-    "name": "Galactic H I l=24\u00b0, b=0\u00b0",
-    "ra_deg": 278.7603608438406,
-    "dec_deg": -7.9425576654049586,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 24\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim032mp00",
-    "name": "Galactic H I l=32\u00b0, b=0\u00b0",
-    "ra_deg": 282.43450991555585,
-    "dec_deg": -0.8293900942183304,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 32\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim040mp00",
-    "name": "Galactic H I l=40\u00b0, b=0\u00b0",
-    "ra_deg": 286.09541381431313,
-    "dec_deg": 6.287174119992988,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 40\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim048mp00",
-    "name": "Galactic H I l=48\u00b0, b=0\u00b0",
-    "ra_deg": 289.85817150179156,
-    "dec_deg": 13.377576264430273,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 48\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim056mp00",
-    "name": "Galactic H I l=56\u00b0, b=0\u00b0",
-    "ra_deg": 293.84915956106937,
-    "dec_deg": 20.4089980830247,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 56\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim064mp00",
-    "name": "Galactic H I l=64\u00b0, b=0\u00b0",
-    "ra_deg": 298.22084948073604,
-    "dec_deg": 27.340907457733632,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 64\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim072mp00",
-    "name": "Galactic H I l=72\u00b0, b=0\u00b0",
-    "ra_deg": 303.1713287010772,
-    "dec_deg": 34.118690637356615,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 72\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim080mp00",
-    "name": "Galactic H I l=80\u00b0, b=0\u00b0",
-    "ra_deg": 308.97122223900004,
-    "dec_deg": 40.66361566282606,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 80\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim088mp00",
-    "name": "Galactic H I l=88\u00b0, b=0\u00b0",
-    "ra_deg": 315.99847344925155,
-    "dec_deg": 46.85635691196274,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 88\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim096mp00",
-    "name": "Galactic H I l=96\u00b0, b=0\u00b0",
-    "ra_deg": 324.76915288696733,
-    "dec_deg": 52.51048493055646,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 96\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim104mp00",
-    "name": "Galactic H I l=104\u00b0, b=0\u00b0",
-    "ra_deg": 335.9083480570102,
-    "dec_deg": 57.33535293268209,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 104\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim112mp00",
-    "name": "Galactic H I l=112\u00b0, b=0\u00b0",
-    "ra_deg": 349.9027366478861,
-    "dec_deg": 60.90771057823498,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 112\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim120mp00",
-    "name": "Galactic H I l=120\u00b0, b=0\u00b0",
-    "ra_deg": 6.450844130341711,
-    "dec_deg": 62.72572967597061,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 120\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim128mp00",
-    "name": "Galactic H I l=128\u00b0, b=0\u00b0",
-    "ra_deg": 23.865756119036156,
-    "dec_deg": 62.43774826503155,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 128\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim136mp00",
-    "name": "Galactic H I l=136\u00b0, b=0\u00b0",
-    "ra_deg": 39.83800352522757,
-    "dec_deg": 60.1048856539257,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 136\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim144mp00",
-    "name": "Galactic H I l=144\u00b0, b=0\u00b0",
-    "ra_deg": 53.051547380995025,
-    "dec_deg": 56.149712368071995,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 144\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim152mp00",
-    "name": "Galactic H I l=152\u00b0, b=0\u00b0",
-    "ra_deg": 63.496894009729296,
-    "dec_deg": 51.067596776594435,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 152\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim160mp00",
-    "name": "Galactic H I l=160\u00b0, b=0\u00b0",
-    "ra_deg": 71.74357240266814,
-    "dec_deg": 45.24623955642395,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 160\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim168mp00",
-    "name": "Galactic H I l=168\u00b0, b=0\u00b0",
-    "ra_deg": 78.39862340213493,
-    "dec_deg": 38.944580563400315,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 168\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim176mp00",
-    "name": "Galactic H I l=176\u00b0, b=0\u00b0",
-    "ra_deg": 83.93983108292014,
-    "dec_deg": 32.32785806064276,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 176\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim184mp00",
-    "name": "Galactic H I l=184\u00b0, b=0\u00b0",
-    "ra_deg": 88.71284432665877,
-    "dec_deg": 25.502442316889695,
-    "type": "H I waypoint",
-    "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 184\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "M87 galaxy; prominent jet source",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim192mp00",
-    "name": "Galactic H I l=192\u00b0, b=0\u00b0",
-    "ra_deg": 92.9657925816414,
-    "dec_deg": 18.53934034351341,
-    "type": "H I waypoint",
+    "id": "cygnus-x",
+    "name": "Cygnus X",
+    "ra_deg": 300.0,
+    "dec_deg": 40.0,
+    "type": "Cygnus X",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 192\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "Very bright extended region",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim200mp00",
-    "name": "Galactic H I l=200\u00b0, b=0\u00b0",
-    "ra_deg": 96.88229716263783,
-    "dec_deg": 11.488615329798439,
-    "type": "H I waypoint",
+    "id": "sagittarius-a",
+    "name": "Sagittarius A",
+    "ra_deg": 265.5375,
+    "dec_deg": 27.166666666666668,
+    "type": "CTB 42",
     "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 200\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim208mp00",
-    "name": "Galactic H I l=208\u00b0, b=0\u00b0",
-    "ra_deg": 100.60619604775216,
-    "dec_deg": 4.388220456713814,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 208\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim216mp00",
-    "name": "Galactic H I l=216\u00b0, b=0\u00b0",
-    "ra_deg": 104.25953467540481,
-    "dec_deg": -2.7302830899280615,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 216\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim224mp00",
-    "name": "Galactic H I l=224\u00b0, b=0\u00b0",
-    "ra_deg": 107.95658416720978,
-    "dec_deg": -9.837574120044453,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 224\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim232mp00",
-    "name": "Galactic H I l=232\u00b0, b=0\u00b0",
-    "ra_deg": 111.81641777712818,
-    "dec_deg": -16.902950302558185,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 232\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim240mp00",
-    "name": "Galactic H I l=240\u00b0, b=0\u00b0",
-    "ra_deg": 115.9763788774221,
-    "dec_deg": -23.89038093505233,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 240\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim248mp00",
-    "name": "Galactic H I l=248\u00b0, b=0\u00b0",
-    "ra_deg": 120.60890205648036,
-    "dec_deg": -30.753267085114196,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 248\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim256mp00",
-    "name": "Galactic H I l=256\u00b0, b=0\u00b0",
-    "ra_deg": 125.94443543861956,
-    "dec_deg": -37.42651400261479,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 256\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim264mp00",
-    "name": "Galactic H I l=264\u00b0, b=0\u00b0",
-    "ra_deg": 132.30260598421106,
-    "dec_deg": -43.81369465667684,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 264\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim272mp00",
-    "name": "Galactic H I l=272\u00b0, b=0\u00b0",
-    "ra_deg": 140.1281118013961,
-    "dec_deg": -49.76599376864589,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 272\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim280mp00",
-    "name": "Galactic H I l=280\u00b0, b=0\u00b0",
-    "ra_deg": 150.00354609441186,
-    "dec_deg": -55.049870208667365,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 280\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim288mp00",
-    "name": "Galactic H I l=288\u00b0, b=0\u00b0",
-    "ra_deg": 162.5388153429604,
-    "dec_deg": -59.309349853333316,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 288\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim296mp00",
-    "name": "Galactic H I l=296\u00b0, b=0\u00b0",
-    "ra_deg": 177.93006547848202,
-    "dec_deg": -62.06535242275734,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 296\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim304mp00",
-    "name": "Galactic H I l=304\u00b0, b=0\u00b0",
-    "ra_deg": 195.20081130178355,
-    "dec_deg": -62.852326230544165,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 304\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim312mp00",
-    "name": "Galactic H I l=312\u00b0, b=0\u00b0",
-    "ra_deg": 212.15046381709303,
-    "dec_deg": -61.50572752540142,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 312\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim320mp00",
-    "name": "Galactic H I l=320\u00b0, b=0\u00b0",
-    "ra_deg": 226.81329437998818,
-    "dec_deg": -58.29770452599935,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 320\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim328mp00",
-    "name": "Galactic H I l=328\u00b0, b=0\u00b0",
-    "ra_deg": 238.589564996904,
-    "dec_deg": -53.72201022690787,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 328\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim336mp00",
-    "name": "Galactic H I l=336\u00b0, b=0\u00b0",
-    "ra_deg": 247.8547629586099,
-    "dec_deg": -48.230467749339965,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 336\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim344mp00",
-    "name": "Galactic H I l=344\u00b0, b=0\u00b0",
-    "ra_deg": 255.23676671213198,
-    "dec_deg": -42.14338648922199,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 344\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim352mp00",
-    "name": "Galactic H I l=352\u00b0, b=0\u00b0",
-    "ra_deg": 261.2841315041802,
-    "dec_deg": -35.66790369013072,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 352\u00b0 at latitude 0\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim000mp10",
-    "name": "Galactic H I l=0\u00b0, b=10\u00b0",
-    "ra_deg": 257.1104559062472,
-    "dec_deg": -23.409729014942315,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 0\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim000mm10",
-    "name": "Galactic H I l=0\u00b0, b=-10\u00b0",
-    "ra_deg": 276.6740496469925,
-    "dec_deg": -33.756546144319195,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 0\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim012mp10",
-    "name": "Galactic H I l=12\u00b0, b=10\u00b0",
-    "ra_deg": 263.95666011677895,
-    "dec_deg": -13.52941310623341,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 12\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "freq_ghz": 0.96,
+    "notes": "Galactic Centre region (extended)",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim012mm10",
-    "name": "Galactic H I l=12\u00b0, b=-10\u00b0",
-    "ra_deg": 282.4929462806669,
-    "dec_deg": -23.0980622633893,
-    "type": "H I waypoint",
+    "id": "centaurus-a",
+    "name": "Centaurus A",
+    "ra_deg": 200.61666666666667,
+    "dec_deg": 41.233333333333334,
+    "type": "CTA 59",
     "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 12\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim024mp10",
-    "name": "Galactic H I l=24\u00b0, b=10\u00b0",
-    "ra_deg": 269.8783833966485,
-    "dec_deg": -3.261903655429605,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 24\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim024mm10",
-    "name": "Galactic H I l=24\u00b0, b=-10\u00b0",
-    "ra_deg": 287.8424876379961,
-    "dec_deg": -12.430881922068544,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 24\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
-    "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
-    ]
-  },
-  {
-    "id": "galmhim036mp10",
-    "name": "Galactic H I l=36\u00b0, b=10\u00b0",
-    "ra_deg": 275.2997193448779,
-    "dec_deg": 7.24379145837065,
-    "type": "H I waypoint",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 36\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "freq_ghz": 0.96,
+    "notes": "NGC 5128",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim036mm10",
-    "name": "Galactic H I l=36\u00b0, b=-10\u00b0",
-    "ra_deg": 293.15192554695903,
-    "dec_deg": -1.849257477492236,
-    "type": "H I waypoint",
+    "id": "3c-400",
+    "name": "3C 400",
+    "ra_deg": 290.925,
+    "dec_deg": 14.509166666666667,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 36\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "SNR complex",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim048mp10",
-    "name": "Galactic H I l=48\u00b0, b=10\u00b0",
-    "ra_deg": 280.5828712309825,
-    "dec_deg": 17.88051215013917,
-    "type": "H I waypoint",
+    "id": "3c-392",
+    "name": "3C 392",
+    "ra_deg": 284.025,
+    "dec_deg": 1.3,
+    "type": "SNR",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 48\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim048mm10",
-    "name": "Galactic H I l=48\u00b0, b=-10\u00b0",
-    "ra_deg": 298.7817625631352,
-    "dec_deg": 8.54994203056684,
-    "type": "H I waypoint",
+    "id": "nrao-5690",
+    "name": "NRAO 5690",
+    "ra_deg": 278.75,
+    "dec_deg": 6.666666666666667,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 48\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim060mp10",
-    "name": "Galactic H I l=60\u00b0, b=10\u00b0",
-    "ra_deg": 286.1095858007091,
-    "dec_deg": 28.555914577222854,
-    "type": "H I waypoint",
+    "id": "3c-390-2",
+    "name": "3C 390.2",
+    "ra_deg": 281.9916666666667,
+    "dec_deg": 0.05472222222222221,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 60\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim060mm10",
-    "name": "Galactic H I l=60\u00b0, b=-10\u00b0",
-    "ra_deg": 305.1163352276675,
-    "dec_deg": 18.64204155163184,
-    "type": "H I waypoint",
+    "id": "3c-403-2",
+    "name": "3C 403.2",
+    "ra_deg": 298.55,
+    "dec_deg": 32.9,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 60\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim072mp10",
-    "name": "Galactic H I l=72\u00b0, b=10\u00b0",
-    "ra_deg": 292.39733832487434,
-    "dec_deg": 39.1659291433006,
-    "type": "H I waypoint",
+    "id": "3c-147-1",
+    "name": "3C 147.1",
+    "ra_deg": 85.42916666666667,
+    "dec_deg": 0.09527777777777775,
+    "type": "Orion B",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 72\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "Flame Nebula region",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim072mm10",
-    "name": "Galactic H I l=72\u00b0, b=-10\u00b0",
-    "ra_deg": 312.6407237571474,
-    "dec_deg": 28.242663435890712,
-    "type": "H I waypoint",
+    "id": "3c-353",
+    "name": "3C 353",
+    "ra_deg": 260.1166666666667,
+    "dec_deg": -0.9797222222222223,
+    "type": "D Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 72\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim084mp10",
-    "name": "Galactic H I l=84\u00b0, b=10\u00b0",
-    "ra_deg": 300.33004189429437,
-    "dec_deg": 49.550544167286986,
-    "type": "H I waypoint",
+    "id": "nrao-6210",
+    "name": "NRAO 6210",
+    "ra_deg": 300.425,
+    "dec_deg": 33.28333333333333,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 84\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim084mm10",
-    "name": "Galactic H I l=84\u00b0, b=-10\u00b0",
-    "ra_deg": 322.0116940507162,
-    "dec_deg": 37.05756336075793,
-    "type": "H I waypoint",
+    "id": "3c-387",
+    "name": "3C 387",
+    "ra_deg": 280.25,
+    "dec_deg": 4.733333333333333,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 84\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim096mp10",
-    "name": "Galactic H I l=96\u00b0, b=10\u00b0",
-    "ra_deg": 311.7177431416282,
-    "dec_deg": 59.38300162165527,
-    "type": "H I waypoint",
+    "id": "3c-123",
+    "name": "3C 123",
+    "ra_deg": 69.26666666666668,
+    "dec_deg": 29.670555555555556,
+    "type": "Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 96\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim096mm10",
-    "name": "Galactic H I l=96\u00b0, b=-10\u00b0",
-    "ra_deg": 334.0657367227551,
-    "dec_deg": 44.60614904432186,
-    "type": "H I waypoint",
+    "id": "nrao-5980",
+    "name": "NRAO 5980",
+    "ra_deg": 287.5791666666667,
+    "dec_deg": 9.06861111111111,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 96\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim108mp10",
-    "name": "Galactic H I l=108\u00b0, b=10\u00b0",
-    "ra_deg": 330.6078435839816,
-    "dec_deg": 67.82752169487799,
-    "type": "H I waypoint",
+    "id": "3c-273",
+    "name": "3C 273",
+    "ra_deg": 187.27916666666664,
+    "dec_deg": 2.0524999999999998,
+    "type": "Quasar",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 108\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "Very bright quasar",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim108mm10",
-    "name": "Galactic H I l=108\u00b0, b=-10\u00b0",
-    "ra_deg": 349.5319539530811,
-    "dec_deg": 50.14694548112779,
-    "type": "H I waypoint",
+    "id": "nrao-6500",
+    "name": "NRAO 6500",
+    "ra_deg": 318.0875,
+    "dec_deg": 52.48277777777778,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 108\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim120mp10",
-    "name": "Galactic H I l=120\u00b0, b=10\u00b0",
-    "ra_deg": 3.1346799753876367,
-    "dec_deg": 72.64994463224578,
-    "type": "H I waypoint",
+    "id": "3c-348",
+    "name": "3C 348",
+    "ra_deg": 252.78333333333336,
+    "dec_deg": 4.9927777777777775,
+    "type": "D Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 120\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim120mm10",
-    "name": "Galactic H I l=120\u00b0, b=-10\u00b0",
-    "ra_deg": 8.084407550069606,
-    "dec_deg": 52.762982656583844,
-    "type": "H I waypoint",
+    "id": "3c-10",
+    "name": "3C 10",
+    "ra_deg": 6.304166666666667,
+    "dec_deg": 64.14500000000001,
+    "type": "Tycho's SNR",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 120\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim132mp10",
-    "name": "Galactic H I l=132\u00b0, b=10\u00b0",
-    "ra_deg": 41.10677466050053,
-    "dec_deg": 70.85534997158736,
-    "type": "H I waypoint",
+    "id": "3c-218",
+    "name": "3C 218",
+    "ra_deg": 139.525,
+    "dec_deg": 11.904444444444444,
+    "type": "D Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 132\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim132mm10",
-    "name": "Galactic H I l=132\u00b0, b=-10\u00b0",
-    "ra_deg": 27.410040799318562,
-    "dec_deg": 51.844051851343934,
-    "type": "H I waypoint",
+    "id": "3c-139-1",
+    "name": "3C 139.1",
+    "ra_deg": 80.60416666666666,
+    "dec_deg": 33.49861111111111,
+    "type": "Emission Nebula",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 132\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim144mp10",
-    "name": "Galactic H I l=144\u00b0, b=10\u00b0",
-    "ra_deg": 66.09516256416306,
-    "dec_deg": 63.77421027125873,
-    "type": "H I waypoint",
+    "id": "nrao-6620",
+    "name": "NRAO 6620",
+    "ra_deg": 322.35,
+    "dec_deg": 50.8,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 144\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim144mm10",
-    "name": "Galactic H I l=144\u00b0, b=-10\u00b0",
-    "ra_deg": 44.542363350552044,
-    "dec_deg": 47.620626896689025,
-    "type": "H I waypoint",
+    "id": "nrao-6020",
+    "name": "NRAO 6020",
+    "ra_deg": 288.925,
+    "dec_deg": 11.033333333333333,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 144\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim156mp10",
-    "name": "Galactic H I l=156\u00b0, b=10\u00b0",
-    "ra_deg": 80.4324400788857,
-    "dec_deg": 54.45707569540031,
-    "type": "H I waypoint",
+    "id": "3c-398",
+    "name": "3C 398",
+    "ra_deg": 287.7875,
+    "dec_deg": 9.106666666666666,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 156\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim156mm10",
-    "name": "Galactic H I l=156\u00b0, b=-10\u00b0",
-    "ra_deg": 58.207123215637296,
-    "dec_deg": 40.94382299616951,
-    "type": "H I waypoint",
+    "id": "nrao-5720",
+    "name": "NRAO 5720",
+    "ra_deg": 279.5625,
+    "dec_deg": 5.206388888888889,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 156\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim168mp10",
-    "name": "Galactic H I l=168\u00b0, b=10\u00b0",
-    "ra_deg": 89.73087266817079,
-    "dec_deg": 44.282750462687666,
-    "type": "H I waypoint",
+    "id": "3c-153-1",
+    "name": "3C 153.1",
+    "ra_deg": 92.4,
+    "dec_deg": 20.488611111111112,
+    "type": "Emission Nebula",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 168\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim168mm10",
-    "name": "Galactic H I l=168\u00b0, b=-10\u00b0",
-    "ra_deg": 68.778408430495,
-    "dec_deg": 32.67263074177395,
-    "type": "H I waypoint",
+    "id": "nrao-1560",
+    "name": "NRAO 1560",
+    "ra_deg": 61.208333333333336,
+    "dec_deg": 51.37166666666667,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 168\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim180mp10",
-    "name": "Galactic H I l=180\u00b0, b=10\u00b0",
-    "ra_deg": 96.67404964699247,
-    "dec_deg": 33.7565461443192,
-    "type": "H I waypoint",
+    "id": "3c-147",
+    "name": "3C 147",
+    "ra_deg": 85.65,
+    "dec_deg": 49.85194444444445,
+    "type": "Quasar",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 180\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "Standard flux calibrator",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim180mm10",
-    "name": "Galactic H I l=180\u00b0, b=-10\u00b0",
-    "ra_deg": 77.11045590624715,
-    "dec_deg": 23.40972901494232,
-    "type": "H I waypoint",
+    "id": "3c-295",
+    "name": "3C 295",
+    "ra_deg": 212.8375,
+    "dec_deg": 52.2025,
+    "type": "D Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 180\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim192mp10",
-    "name": "Galactic H I l=192\u00b0, b=10\u00b0",
-    "ra_deg": 102.49294628066686,
-    "dec_deg": 23.098062263389295,
-    "type": "H I waypoint",
+    "id": "3c-391",
+    "name": "3C 391",
+    "ra_deg": 282.34166666666664,
+    "dec_deg": -0.9225,
+    "type": "SNR",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 192\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim192mm10",
-    "name": "Galactic H I l=192\u00b0, b=-10\u00b0",
-    "ra_deg": 83.95666011677896,
-    "dec_deg": 13.529413106233404,
-    "type": "H I waypoint",
+    "id": "nrao-1650",
+    "name": "NRAO 1650",
+    "ra_deg": 62.77083333333334,
+    "dec_deg": 51.15222222222222,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 192\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim204mp10",
-    "name": "Galactic H I l=204\u00b0, b=10\u00b0",
-    "ra_deg": 107.84248763799613,
-    "dec_deg": 12.430881922068544,
-    "type": "H I waypoint",
+    "id": "3c-161",
+    "name": "3C 161",
+    "ra_deg": 96.79166666666667,
+    "dec_deg": 4.115277777777778,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 204\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim204mm10",
-    "name": "Galactic H I l=204\u00b0, b=-10\u00b0",
-    "ra_deg": 89.87838339664852,
-    "dec_deg": 3.261903655429605,
-    "type": "H I waypoint",
+    "id": "nrao-5790",
+    "name": "NRAO 5790",
+    "ra_deg": 281.52916666666664,
+    "dec_deg": 1.2766666666666666,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 204\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim216mp10",
-    "name": "Galactic H I l=216\u00b0, b=10\u00b0",
-    "ra_deg": 113.15192554695906,
-    "dec_deg": 1.8492574774922423,
-    "type": "H I waypoint",
+    "id": "3c-270",
+    "name": "3C 270",
+    "ra_deg": 184.84583333333333,
+    "dec_deg": 5.825833333333333,
+    "type": "Elliptical Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 216\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim216mm10",
-    "name": "Galactic H I l=216\u00b0, b=-10\u00b0",
-    "ra_deg": 95.2997193448779,
-    "dec_deg": -7.2437914583706435,
-    "type": "H I waypoint",
+    "id": "3c-48",
+    "name": "3C 48",
+    "ra_deg": 24.420833333333334,
+    "dec_deg": 33.15972222222222,
+    "type": "Quasar",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 216\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "Standard calibrator",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim228mp10",
-    "name": "Galactic H I l=228\u00b0, b=10\u00b0",
-    "ra_deg": 118.78176256313517,
-    "dec_deg": -8.549942030566843,
-    "type": "H I waypoint",
+    "id": "3c-111",
+    "name": "3C 111",
+    "ra_deg": 64.58749999999999,
+    "dec_deg": 38.026666666666664,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 228\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim228mm10",
-    "name": "Galactic H I l=228\u00b0, b=-10\u00b0",
-    "ra_deg": 100.58287123098249,
-    "dec_deg": -17.88051215013917,
-    "type": "H I waypoint",
+    "id": "3c-286",
+    "name": "3C 286",
+    "ra_deg": 202.78333333333336,
+    "dec_deg": 30.509166666666665,
+    "type": "Quasar",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 228\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "Primary flux calibration standard",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim240mp10",
-    "name": "Galactic H I l=240\u00b0, b=10\u00b0",
-    "ra_deg": 125.1163352276675,
-    "dec_deg": -18.642041551631824,
-    "type": "H I waypoint",
+    "id": "nrao-5840",
+    "name": "NRAO 5840",
+    "ra_deg": 283.3333333333333,
+    "dec_deg": 1.2483333333333333,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 240\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim240mm10",
-    "name": "Galactic H I l=240\u00b0, b=-10\u00b0",
-    "ra_deg": 106.10958580070907,
-    "dec_deg": -28.55591457722284,
-    "type": "H I waypoint",
+    "id": "3c-84",
+    "name": "3C 84",
+    "ra_deg": 49.949999999999996,
+    "dec_deg": 41.51166666666666,
+    "type": "Seyfert Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 240\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim252mp10",
-    "name": "Galactic H I l=252\u00b0, b=10\u00b0",
-    "ra_deg": 132.64072375714744,
-    "dec_deg": -28.24266343589071,
-    "type": "H I waypoint",
+    "id": "3c-196",
+    "name": "3C 196",
+    "ra_deg": 123.4,
+    "dec_deg": 48.2175,
+    "type": "Quasar",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 252\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim252mm10",
-    "name": "Galactic H I l=252\u00b0, b=-10\u00b0",
-    "ra_deg": 112.39733832487437,
-    "dec_deg": -39.165929143300595,
-    "type": "H I waypoint",
+    "id": "3c-380",
+    "name": "3C 380",
+    "ra_deg": 277.3833333333334,
+    "dec_deg": 48.74638888888889,
+    "type": "Quasar",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 252\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim264mp10",
-    "name": "Galactic H I l=264\u00b0, b=10\u00b0",
-    "ra_deg": 142.0116940507162,
-    "dec_deg": -37.05756336075793,
-    "type": "H I waypoint",
+    "id": "nrao-5890",
+    "name": "NRAO 5890",
+    "ra_deg": 285.45,
+    "dec_deg": 1.781388888888889,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 264\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim264mm10",
-    "name": "Galactic H I l=264\u00b0, b=-10\u00b0",
-    "ra_deg": 120.33004189429435,
-    "dec_deg": -49.550544167286986,
-    "type": "H I waypoint",
+    "id": "3c-396",
+    "name": "3C 396",
+    "ra_deg": 285.9916666666667,
+    "dec_deg": 5.375,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 264\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim276mp10",
-    "name": "Galactic H I l=276\u00b0, b=10\u00b0",
-    "ra_deg": 154.0657367227551,
-    "dec_deg": -44.60614904432183,
-    "type": "H I waypoint",
+    "id": "3c-397",
+    "name": "3C 397",
+    "ra_deg": 286.9166666666667,
+    "dec_deg": 7.144166666666667,
+    "type": "SNR",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 276\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim276mm10",
-    "name": "Galactic H I l=276\u00b0, b=-10\u00b0",
-    "ra_deg": 131.71774314162823,
-    "dec_deg": -59.38300162165523,
-    "type": "H I waypoint",
+    "id": "3c-409",
+    "name": "3C 409",
+    "ra_deg": 303.6166666666667,
+    "dec_deg": 23.58277777777778,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 276\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim288mp10",
-    "name": "Galactic H I l=288\u00b0, b=10\u00b0",
-    "ra_deg": 169.53195395308106,
-    "dec_deg": -50.14694548112779,
-    "type": "H I waypoint",
+    "id": "3c-33",
+    "name": "3C 33",
+    "ra_deg": 17.220833333333335,
+    "dec_deg": 13.337222222222223,
+    "type": "Elliptical Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 288\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim288mm10",
-    "name": "Galactic H I l=288\u00b0, b=-10\u00b0",
-    "ra_deg": 150.60784358398155,
-    "dec_deg": -67.82752169487799,
-    "type": "H I waypoint",
+    "id": "3c-20",
+    "name": "3C 20",
+    "ra_deg": 10.7875,
+    "dec_deg": 52.059444444444445,
+    "type": "Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 288\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim300mp10",
-    "name": "Galactic H I l=300\u00b0, b=10\u00b0",
-    "ra_deg": 188.08440755006964,
-    "dec_deg": -52.762982656583844,
-    "type": "H I waypoint",
+    "id": "nrao-5670",
+    "name": "NRAO 5670",
+    "ra_deg": 278.0,
+    "dec_deg": 1.9333333333333333,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 300\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim300mm10",
-    "name": "Galactic H I l=300\u00b0, b=-10\u00b0",
-    "ra_deg": 183.13467997538768,
-    "dec_deg": -72.64994463224578,
-    "type": "H I waypoint",
+    "id": "3c-390-3",
+    "name": "3C 390.3",
+    "ra_deg": 280.5375,
+    "dec_deg": 79.7713888888889,
+    "type": "N Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 300\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim312mp10",
-    "name": "Galactic H I l=312\u00b0, b=10\u00b0",
-    "ra_deg": 207.41004079931852,
-    "dec_deg": -51.84405185134395,
-    "type": "H I waypoint",
+    "id": "3c-433",
+    "name": "3C 433",
+    "ra_deg": 320.9375,
+    "dec_deg": 25.071666666666665,
+    "type": "D Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 312\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim312mm10",
-    "name": "Galactic H I l=312\u00b0, b=-10\u00b0",
-    "ra_deg": 221.10677466050046,
-    "dec_deg": -70.85534997158739,
-    "type": "H I waypoint",
+    "id": "3c-434-1",
+    "name": "3C 434.1",
+    "ra_deg": 321.2666666666667,
+    "dec_deg": 51.88111111111111,
+    "type": "SNR",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 312\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim324mp10",
-    "name": "Galactic H I l=324\u00b0, b=10\u00b0",
-    "ra_deg": 224.54236335055202,
-    "dec_deg": -47.620626896689025,
-    "type": "H I waypoint",
+    "id": "3c-279",
+    "name": "3C 279",
+    "ra_deg": 194.04583333333332,
+    "dec_deg": 4.210555555555556,
+    "type": "Quasar",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 324\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim324mm10",
-    "name": "Galactic H I l=324\u00b0, b=-10\u00b0",
-    "ra_deg": 246.09516256416308,
-    "dec_deg": -63.77421027125873,
-    "type": "H I waypoint",
+    "id": "nrao-6070",
+    "name": "NRAO 6070",
+    "ra_deg": 289.525,
+    "dec_deg": 12.2,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 324\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim336mp10",
-    "name": "Galactic H I l=336\u00b0, b=10\u00b0",
-    "ra_deg": 238.20712321563732,
-    "dec_deg": -40.9438229961695,
-    "type": "H I waypoint",
+    "id": "3c-452",
+    "name": "3C 452",
+    "ra_deg": 341.45416666666665,
+    "dec_deg": 39.687777777777775,
+    "type": "Elliptical Galaxy",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 336\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim336mm10",
-    "name": "Galactic H I l=336\u00b0, b=-10\u00b0",
-    "ra_deg": 260.4324400788857,
-    "dec_deg": -54.457075695400306,
-    "type": "H I waypoint",
+    "id": "3c-454-3",
+    "name": "3C 454.3",
+    "ra_deg": 343.4916666666667,
+    "dec_deg": 16.148333333333333,
+    "type": "Quasar",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 336\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim348mp10",
-    "name": "Galactic H I l=348\u00b0, b=10\u00b0",
-    "ra_deg": 248.77840843049495,
-    "dec_deg": -32.672630741773986,
-    "type": "H I waypoint",
+    "id": "nrao-6010",
+    "name": "NRAO 6010",
+    "ra_deg": 288.58333333333337,
+    "dec_deg": 11.151666666666667,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 348\u00b0 at latitude 10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   },
   {
-    "id": "galmhim348mm10",
-    "name": "Galactic H I l=348\u00b0, b=-10\u00b0",
-    "ra_deg": 269.7308726681708,
-    "dec_deg": -44.2827504626877,
-    "type": "H I waypoint",
+    "id": "3c-410",
+    "name": "3C 410",
+    "ra_deg": 305.02916666666664,
+    "dec_deg": 29.703888888888887,
+    "type": "radio source",
     "category": "beginner",
     "freq_ghz": 1.42,
-    "notes": "Pointing along Galactic longitude 348\u00b0 at latitude -10\u00b0. Useful for Milky Way rotation measurements.",
+    "notes": "",
     "refs": [
-      "https://en.wikipedia.org/wiki/Galactic_coordinate_system"
+      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
     ]
   }
 ]

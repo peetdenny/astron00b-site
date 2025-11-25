@@ -4,192 +4,99 @@ import json
 from dataclasses import dataclass, asdict
 from math import asin, atan2, cos, radians, sin, degrees, pi
 from pathlib import Path
-from typing import List
+from typing import List, Optional
+import csv
+import re
 
 
 @dataclass
 class RadioSource:
     id: str
     name: str
-    ra_deg: float
-    dec_deg: float
+    ra_deg: Optional[float]
+    dec_deg: Optional[float]
     type: str  # e.g. "supernova remnant", "H I region", "pulsar"
     category: str  # "beginner" or "advanced"
-    freq_ghz: float
+    freq_ghz: Optional[float]
     notes: str
     refs: List[str]
 
 
 def load_initial_sources() -> list[RadioSource]:
-    """Return hand-picked bright sources plus generated galactic waypoints."""
+    """Load curated sources from CSV and return as RadioSource objects."""
 
-    bright_sources = [
-        RadioSource(
-            id="cas-a",
-            name="Cassiopeia A",
-            ra_deg=350.85,
-            dec_deg=58.82,
-            type="supernova remnant",
-            category="beginner",
-            freq_ghz=1.4,
-            notes="One of the brightest radio sources in the sky; great calibration target for continuum observations.",
-            refs=[
-                "https://astronomy.swin.edu.au/cosmos/c/cassiopeia+a",
-            ],
-        ),
-        RadioSource(
-            id="cyg-a",
-            name="Cygnus A",
-            ra_deg=299.87,
-            dec_deg=40.73,
-            type="radio galaxy",
-            category="beginner",
-            freq_ghz=1.4,
-            notes="Powerful extragalactic radio source; visible with modest dishes.",
-            refs=[
-                "https://heasarc.gsfc.nasa.gov/W3Browse/all/cygnusa.html",
-            ],
-        ),
-        RadioSource(
-            id="taurus-a",
-            name="Taurus A (Crab Nebula)",
-            ra_deg=83.63,
-            dec_deg=22.01,
-            type="supernova remnant",
-            category="beginner",
-            freq_ghz=1.4,
-            notes="Bright remnant with both continuum emission and pulsar activity; accessible to small dishes.",
-            refs=[
-                "https://science.nasa.gov/missions/chandra/crab-nebula/",
-            ],
-        ),
-        RadioSource(
-            id="sgr-a",
-            name="Sagittarius A / Galactic Center",
-            ra_deg=266.42,
-            dec_deg=-28.94,
-            type="galactic center",
-            category="beginner",
-            freq_ghz=1.42,
-            notes="Dense region rich in H I emission; prime target for exploring galactic rotation curves.",
-            refs=[
-                "https://www.esa.int/Science_Exploration/Space_Science/The_Milky_Way_s_centre",
-            ],
-        ),
-        RadioSource(
-            id="orion-a",
-            name="Orion Nebula (M42)",
-            ra_deg=83.82,
-            dec_deg=-5.39,
-            type="H II region",
-            category="beginner",
-            freq_ghz=1.42,
-            notes="Strong thermal emission; pairs well with optical observations for outreach.",
-            refs=[
-                "https://www.cv.nrao.edu/course/astr534/Orion.html",
-            ],
-        ),
-        RadioSource(
-            id="virgo-a",
-            name="Virgo A (M87)",
-            ra_deg=187.71,
-            dec_deg=12.39,
-            type="radio galaxy",
-            category="beginner",
-            freq_ghz=1.4,
-            notes="Massive galaxy with famous jet; bright radio core helpful for pointing checks.",
-            refs=[
-                "https://science.nasa.gov/resource/messier-87-m87-virgo-a-ngc-4486/",
-            ],
-        ),
-        RadioSource(
-            id="psr-b0329+54",
-            name="PSR B0329+54",
-            ra_deg=53.245,
-            dec_deg=54.579,
-            type="pulsar",
-            category="advanced",
-            freq_ghz=0.4,
-            notes="Bright northern pulsar detectable with larger amateur arrays; aspirational target.",
-            refs=[
-                "https://www.atnf.csiro.au/research/pulsar/psrcat/",
-            ],
-        ),
-        RadioSource(
-            id="vela-pulsar",
-            name="Vela Pulsar",
-            ra_deg=128.835,
-            dec_deg=-45.176,
-            type="pulsar",
-            category="advanced",
-            freq_ghz=0.6,
-            notes="Southern hemisphere pulsar; requires high sensitivity but defines the path toward timing experiments.",
-            refs=[
-                "https://www.nasa.gov/image-article/vela-pulsar/",
-            ],
-        ),
-    ]
+    csv_path = Path(__file__).parents[2] / "data" / "radio_sources.csv"
+    if not csv_path.exists():
+        raise FileNotFoundError(f"CSV file not found: {csv_path}")
 
-    galactic_waypoints = generate_galactic_waypoints()
-    return bright_sources + galactic_waypoints
-
-
-# Galactic to equatorial constants (IAU 1958)
-RA_NGP_DEG = 192.85948
-DEC_NGP_DEG = 27.12825
-L_CP_DEG = 32.93192
-
-
-def galactic_to_equatorial(l_deg: float, b_deg: float) -> tuple[float, float]:
-    """Convert galactic coordinates (l, b) in degrees to equatorial RA/Dec in degrees."""
-    l = radians(l_deg)
-    b = radians(b_deg)
-    ra_ngp = radians(RA_NGP_DEG)
-    dec_ngp = radians(DEC_NGP_DEG)
-    l_cp = radians(L_CP_DEG)
-
-    sin_dec = sin(b) * sin(dec_ngp) + cos(b) * cos(dec_ngp) * sin(l - l_cp)
-    dec = asin(sin_dec)
-
-    y = cos(b) * cos(l - l_cp)
-    x = sin(b) * cos(dec_ngp) - cos(b) * sin(dec_ngp) * sin(l - l_cp)
-    ra = atan2(y, x) + ra_ngp
-    ra = ra % (2 * pi)
-
-    return degrees(ra), degrees(dec)
-
-
-def generate_galactic_waypoints() -> list[RadioSource]:
-    """Create a dense set of galactic H I waypoints for beginners."""
-    refs = ["https://en.wikipedia.org/wiki/Galactic_coordinate_system"]
     sources: list[RadioSource] = []
+    with csv_path.open(newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            ra = parse_ra(row.get("RA_hms", ""))
+            dec = parse_dec(row.get("Dec_dms", ""))
+            if ra is None or dec is None:
+                # Skip entries without precise coordinates (e.g. Sun, Moon)
+                continue
 
-    def add_point(l_deg: float, b_deg: float, category: str):
-        ra_deg, dec_deg = galactic_to_equatorial(l_deg, b_deg)
-        sources.append(
-            RadioSource(
-                id=f"gal-hi-{int(l_deg):03d}-{int(b_deg):+03d}".replace("+", "p").replace("-", "m"),
-                name=f"Galactic H I l={l_deg:.0f}°, b={b_deg:.0f}°",
-                ra_deg=ra_deg,
-                dec_deg=dec_deg,
-                type="H I waypoint",
-                category=category,
-                freq_ghz=1.42,
-                notes=f"Pointing along Galactic longitude {l_deg:.0f}° at latitude {b_deg:.0f}°. Useful for Milky Way rotation measurements.",
-                refs=refs,
+            freq_mhz = row.get("Frequency_MHz", "").strip()
+            freq_ghz = (
+                float(freq_mhz) / 1000
+                if freq_mhz.replace(".", "", 1).isdigit()
+                else None
             )
-        )
 
-    # Dense coverage along galactic plane
-    for l in range(0, 360, 8):
-        add_point(l, 0.0, "beginner")
-
-    # Slightly off-plane paths for structure study
-    for l in range(0, 360, 12):
-        add_point(l, 10.0, "beginner")
-        add_point(l, -10.0, "beginner")
+            sources.append(
+                RadioSource(
+                    id=slugify(row.get("ObjectName", "")),
+                    name=row.get("ObjectName", "Unnamed source"),
+                    ra_deg=ra,
+                    dec_deg=dec,
+                    type=row.get("OtherName", "").strip() or "radio source",
+                    category="beginner",
+                    freq_ghz=freq_ghz,
+                    notes=row.get("Notes", "").strip(),
+                    refs=[
+                        "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
+                    ],
+                )
+            )
 
     return sources
+
+
+def slugify(value: str) -> str:
+    value = value.lower().strip()
+    value = re.sub(r"[^a-z0-9]+", "-", value)
+    value = re.sub(r"-{2,}", "-", value)
+    return value.strip("-") or "source"
+
+
+def parse_ra(value: str) -> Optional[float]:
+    value = value.strip()
+    if not value or value.lower().startswith("variable"):
+        return None
+    parts = re.split(r"[hms:\s]+", value)
+    parts = [p for p in parts if p]
+    if len(parts) < 3:
+        return None
+    h, m, s = map(float, parts[:3])
+    return (h + m / 60 + s / 3600) * 15.0
+
+
+def parse_dec(value: str) -> Optional[float]:
+    value = value.strip()
+    if not value:
+        return None
+    sign = -1 if value.startswith("-") else 1
+    cleaned = value.replace("+", "")
+    parts = re.split(r"[d°'\" \s]+", cleaned)
+    parts = [p for p in parts if p]
+    if len(parts) < 3:
+        return None
+    deg_val, minutes, seconds = map(float, parts[:3])
+    dec = deg_val + minutes / 60 + seconds / 3600
+    return sign * dec
 
 
 def main() -> None:
