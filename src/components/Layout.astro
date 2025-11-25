@@ -1,0 +1,38 @@
+---
+import "../styles/base.css";
+
+const { title = "AstroN00b" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Astron00b</a>
+        <a href="/start-here">Start Here</a>
+        <a href="/tools">Tools</a>
+        <a href="/community">Community</a>
+        <a href="/about">About</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>© {new Date().getFullYear()} AstroN00b</p>
+    </footer>
+  </body>
+</html>
+
+

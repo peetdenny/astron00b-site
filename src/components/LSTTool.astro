@@ -1,0 +1,121 @@
+<div class="lst-tool" data-component="lst-tool">
+  <form class="lst-form">
+    <label>
+      Latitude (°)
+      <input type="number" name="latitude" value="0" step="0.1" min="-90" max="90" />
+    </label>
+    <label>
+      Longitude (° East)
+      <input type="number" name="longitude" value="0" step="0.1" min="-180" max="180" />
+    </label>
+    <label class="time-mode">
+      <input type="checkbox" name="useNow" checked />
+      Use current time
+    </label>
+    <label class="custom-time">
+      Date &amp; Time (UTC)
+      <input type="datetime-local" name="datetime" />
+    </label>
+  </form>
+  <div class="location-actions">
+    <button type="button" data-action="useLocation">Use my location</button>
+    <span data-field="status"></span>
+  </div>
+
+  <section class="lst-results">
+    <div>
+      <h2>Local Time</h2>
+      <p data-field="localTime">--:--:--</p>
+    </div>
+    <div>
+      <h2>UTC Time</h2>
+      <p data-field="utcTime">--:--:--</p>
+    </div>
+    <div>
+      <h2>Local Sidereal Time</h2>
+      <p data-field="lst">--:--:--</p>
+    </div>
+  </section>
+  <script type="module" src="/src/scripts/lstTool.ts"></script>
+</div>
+
+<style>
+  .lst-tool {
+    border: 1px solid var(--an-blue);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background: rgba(10, 110, 136, 0.08);
+  }
+
+  .lst-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    gap: 0.4rem;
+  }
+
+  .location-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .location-actions button {
+    border: 1px solid var(--an-pink);
+    background: transparent;
+    color: var(--an-pink);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--an-font-body);
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .location-actions button:hover {
+    background: var(--an-pink);
+    color: var(--an-navy);
+  }
+
+  input[type="number"],
+  input[type="datetime-local"] {
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--an-white);
+  }
+
+  input[type="checkbox"] {
+    margin-right: 0.4rem;
+  }
+
+  .lst-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .lst-results h2 {
+    font-family: var(--an-font-pixel);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: var(--an-pink);
+  }
+
+  .lst-results p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+  }
+</style>
+
+
