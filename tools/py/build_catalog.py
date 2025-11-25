@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, asdict
+from math import asin, atan2, cos, radians, sin, degrees, pi
 from pathlib import Path
 from typing import List
 
@@ -20,11 +21,9 @@ class RadioSource:
 
 
 def load_initial_sources() -> list[RadioSource]:
-    """Return a small hand-picked set of bright, beginner-friendly sources.
+    """Return hand-picked bright sources plus generated galactic waypoints."""
 
-    This is a placeholder; later we can populate from public catalogues.
-    """
-    return [
+    bright_sources = [
         RadioSource(
             id="cas-a",
             name="Cassiopeia A",
@@ -130,6 +129,67 @@ def load_initial_sources() -> list[RadioSource]:
             ],
         ),
     ]
+
+    galactic_waypoints = generate_galactic_waypoints()
+    return bright_sources + galactic_waypoints
+
+
+# Galactic to equatorial constants (IAU 1958)
+RA_NGP_DEG = 192.85948
+DEC_NGP_DEG = 27.12825
+L_CP_DEG = 32.93192
+
+
+def galactic_to_equatorial(l_deg: float, b_deg: float) -> tuple[float, float]:
+    """Convert galactic coordinates (l, b) in degrees to equatorial RA/Dec in degrees."""
+    l = radians(l_deg)
+    b = radians(b_deg)
+    ra_ngp = radians(RA_NGP_DEG)
+    dec_ngp = radians(DEC_NGP_DEG)
+    l_cp = radians(L_CP_DEG)
+
+    sin_dec = sin(b) * sin(dec_ngp) + cos(b) * cos(dec_ngp) * sin(l - l_cp)
+    dec = asin(sin_dec)
+
+    y = cos(b) * cos(l - l_cp)
+    x = sin(b) * cos(dec_ngp) - cos(b) * sin(dec_ngp) * sin(l - l_cp)
+    ra = atan2(y, x) + ra_ngp
+    ra = ra % (2 * pi)
+
+    return degrees(ra), degrees(dec)
+
+
+def generate_galactic_waypoints() -> list[RadioSource]:
+    """Create a dense set of galactic H I waypoints for beginners."""
+    refs = ["https://en.wikipedia.org/wiki/Galactic_coordinate_system"]
+    sources: list[RadioSource] = []
+
+    def add_point(l_deg: float, b_deg: float, category: str):
+        ra_deg, dec_deg = galactic_to_equatorial(l_deg, b_deg)
+        sources.append(
+            RadioSource(
+                id=f"gal-hi-{int(l_deg):03d}-{int(b_deg):+03d}".replace("+", "p").replace("-", "m"),
+                name=f"Galactic H I l={l_deg:.0f}°, b={b_deg:.0f}°",
+                ra_deg=ra_deg,
+                dec_deg=dec_deg,
+                type="H I waypoint",
+                category=category,
+                freq_ghz=1.42,
+                notes=f"Pointing along Galactic longitude {l_deg:.0f}° at latitude {b_deg:.0f}°. Useful for Milky Way rotation measurements.",
+                refs=refs,
+            )
+        )
+
+    # Dense coverage along galactic plane
+    for l in range(0, 360, 8):
+        add_point(l, 0.0, "beginner")
+
+    # Slightly off-plane paths for structure study
+    for l in range(0, 360, 12):
+        add_point(l, 10.0, "beginner")
+        add_point(l, -10.0, "beginner")
+
+    return sources
 
 
 def main() -> None:
