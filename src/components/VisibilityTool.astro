@@ -1,4 +1,5 @@
 ---
+import visibilityScriptUrl from "../scripts/visibilityTool.ts?url";
 ---
 
 <div class="visibility-tool" data-component="visibility-tool">
@@ -55,9 +56,7 @@
     </table>
   </div>
 
-  <script type="module">
-    import "../scripts/visibilityTool.ts";
-  </script>
+  <script type="module" src={visibilityScriptUrl}></script>
 </div>
 
 <style>
