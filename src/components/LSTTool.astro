@@ -1,7 +1,3 @@
----
-import lstScriptUrl from "../scripts/lstTool.js?url";
----
-
 <div class="lst-tool" data-component="lst-tool">
   <form class="lst-form">
     <label>
@@ -40,7 +36,10 @@ import lstScriptUrl from "../scripts/lstTool.js?url";
       <p data-field="lst">--:--:--</p>
     </div>
   </section>
-  <script type="module" src={lstScriptUrl}></script>
+  <script type="module">
+    import setupLSTTool from "../scripts/lstTool.js";
+    setupLSTTool();
+  </script>
 </div>
 
 <style>

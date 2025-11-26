@@ -96,13 +96,15 @@ function initAll() {
   });
 }
 
-if (["interactive", "complete"].includes(document.readyState)) {
-  initAll();
-} else {
-  document.addEventListener("DOMContentLoaded", initAll, { once: true });
-}
+export default function setupLSTTool() {
+  if (["interactive", "complete"].includes(document.readyState)) {
+    initAll();
+  } else {
+    document.addEventListener("DOMContentLoaded", initAll, { once: true });
+  }
 
-document.addEventListener("astro:after-swap", initAll);
-document.addEventListener("astro:page-load", initAll);
+  document.addEventListener("astro:after-swap", initAll);
+  document.addEventListener("astro:page-load", initAll);
+}
 
 

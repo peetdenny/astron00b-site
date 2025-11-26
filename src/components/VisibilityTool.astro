@@ -1,7 +1,3 @@
----
-import visibilityScriptUrl from "../scripts/visibilityTool.js?url";
----
-
 <div class="visibility-tool" data-component="visibility-tool">
   <form class="vis-form">
     <label>
@@ -56,7 +52,10 @@ import visibilityScriptUrl from "../scripts/visibilityTool.js?url";
     </table>
   </div>
 
-  <script type="module" src={visibilityScriptUrl}></script>
+  <script type="module">
+    import setupVisibilityTool from "../scripts/visibilityTool.js";
+    setupVisibilityTool();
+  </script>
 </div>
 
 <style>
