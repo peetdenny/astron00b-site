@@ -2,31 +2,31 @@ import { localSiderealTime, hoursToHms } from "../lib/astroTime";
 
 const COMPONENT_SELECTOR = '[data-component="lst-tool"]';
 
-function initLSTTool(root: HTMLElement) {
-  const form = root.querySelector<HTMLFormElement>(".lst-form");
+function initLSTTool(root) {
+  const form = root.querySelector(".lst-form");
   if (!form) return;
 
-  const useNow = form.querySelector<HTMLInputElement>('input[name="useNow"]');
-  const dateInput = form.querySelector<HTMLInputElement>('input[name="datetime"]');
-  const latInput = form.querySelector<HTMLInputElement>('input[name="latitude"]');
-  const lonInput = form.querySelector<HTMLInputElement>('input[name="longitude"]');
+  const useNow = form.querySelector('input[name="useNow"]');
+  const dateInput = form.querySelector('input[name="datetime"]');
+  const latInput = form.querySelector('input[name="latitude"]');
+  const lonInput = form.querySelector('input[name="longitude"]');
 
-  const localField = root.querySelector<HTMLElement>('[data-field="localTime"]');
-  const utcField = root.querySelector<HTMLElement>('[data-field="utcTime"]');
-  const lstField = root.querySelector<HTMLElement>('[data-field="lst"]');
+  const localField = root.querySelector('[data-field="localTime"]');
+  const utcField = root.querySelector('[data-field="utcTime"]');
+  const lstField = root.querySelector('[data-field="lst"]');
 
-  const statusField = root.querySelector<HTMLElement>('[data-field="status"]');
-  const useLocationBtn = root.querySelector<HTMLButtonElement>('[data-action="useLocation"]');
+  const statusField = root.querySelector('[data-field="status"]');
+  const useLocationBtn = root.querySelector('[data-action="useLocation"]');
 
   if (!useNow || !dateInput || !latInput || !lonInput || !localField || !utcField || !lstField) {
     console.warn("LST tool missing one or more required elements");
     return;
   }
 
-  const two = (val: number) => String(val).padStart(2, "0");
-  const formatTime = (date: Date) => `${two(date.getHours())}:${two(date.getMinutes())}:${two(date.getSeconds())}`;
+  const two = (val) => String(val).padStart(2, "0");
+  const formatTime = (date) => `${two(date.getHours())}:${two(date.getMinutes())}:${two(date.getSeconds())}`;
 
-  const setStatus = (text: string, isError = false) => {
+  const setStatus = (text, isError = false) => {
     if (!statusField) return;
     statusField.textContent = text;
     statusField.style.color = isError ? "var(--an-pink)" : "var(--an-grey)";
@@ -50,7 +50,7 @@ function initLSTTool(root: HTMLElement) {
     dateInput.disabled = useCurrent;
   };
 
-  const applyLocation = (lat: number, lon: number) => {
+  const applyLocation = (lat, lon) => {
     latInput.value = lat.toFixed(3);
     lonInput.value = lon.toFixed(3);
     setStatus(`Using ${lat.toFixed(2)}, ${lon.toFixed(2)}`);
@@ -88,22 +88,21 @@ function initLSTTool(root: HTMLElement) {
 }
 
 function initAll() {
-  document.querySelectorAll<HTMLElement>(COMPONENT_SELECTOR).forEach((root) => {
-    if (!(root as any)._lstInitialized) {
+  document.querySelectorAll(COMPONENT_SELECTOR).forEach((root) => {
+    if (!root._lstInitialized) {
       initLSTTool(root);
-      (root as any)._lstInitialized = true;
+      root._lstInitialized = true;
     }
   });
 }
 
-const readyStates: DocumentReadyState[] = ["interactive", "complete"];
-if (readyStates.includes(document.readyState)) {
+if (["interactive", "complete"].includes(document.readyState)) {
   initAll();
 } else {
   document.addEventListener("DOMContentLoaded", initAll, { once: true });
 }
 
-document.addEventListener("astro:after-swap" as any, initAll);
-document.addEventListener("astro:page-load" as any, initAll);
+document.addEventListener("astro:after-swap", initAll);
+document.addEventListener("astro:page-load", initAll);
 
 
