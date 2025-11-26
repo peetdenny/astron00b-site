@@ -1,5 +1,4 @@
 ---
-import lstScriptUrl from "../scripts/lstTool.ts?url";
 ---
 
 <div class="lst-tool" data-component="lst-tool">
@@ -40,7 +39,9 @@ import lstScriptUrl from "../scripts/lstTool.ts?url";
       <p data-field="lst">--:--:--</p>
     </div>
   </section>
-  <script type="module" src={lstScriptUrl}></script>
+  <script type="module">
+    import "../scripts/lstTool.ts";
+  </script>
 </div>
 
 <style>
