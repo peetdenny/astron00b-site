@@ -1,3 +1,33 @@
+---
+import visibilityScript from "../scripts/visibilityTool.js";
+---
+
+<div data-component="visibility-tool">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Type</th>
+          <th>Expert level</th>
+          <th>Altitude</th>
+          <th>Azimuth</th>
+          <th>Transit</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody data-field="results">
+        <tr>
+          <td colspan="6">Loading…</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="module" src={visibilityScript}></script>
+---
+
 <div class="visibility-tool" data-component="visibility-tool">
   <form class="vis-form">
     <label>
@@ -51,11 +81,6 @@
       </tbody>
     </table>
   </div>
-
-  <script type="module">
-    import setupVisibilityTool from "../scripts/visibilityTool.js";
-    setupVisibilityTool();
-  </script>
 </div>
 
 <style>

@@ -200,3 +200,8 @@ export default function setupVisibilityTool() {
 }
 
 
+// Auto-run when loaded in the browser
+if (typeof window !== "undefined") {
+    setupVisibilityTool();
+  }
+
