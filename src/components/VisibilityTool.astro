@@ -1,5 +1,5 @@
 ---
-import visibilityScriptUrl from "../scripts/visibilityTool.js?url";
+const visibilityScriptUrl = new URL("../scripts/visibilityTool.js", import.meta.url).href;
 ---
 
 <div data-component="visibility-tool">
