@@ -1,35 +1,21 @@
-<div data-component="visibility-tool">
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>Source</th>
-          <th>Type</th>
-          <th>Expert level</th>
-          <th>Altitude</th>
-          <th>Azimuth</th>
-          <th>Transit</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody data-field="results">
-        <tr>
-          <td colspan="6">Loading…</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+---
+import visibilityScriptUrl from "../scripts/visibilityTool.js?url";
+---
 
 <div class="visibility-tool" data-component="visibility-tool">
-  <form class="vis-form">
+  <div class="tool-header">
+    <h2>What's Up Tonight?</h2>
+    <button type="button" class="update-location-btn" data-action="updateLocation">Update Location</button>
+  </div>
+
+  <form class="vis-form" style="display: none;">
     <label>
       Latitude (°)
-      <input type="number" name="latitude" value="0" step="0.1" min="-90" max="90" />
+      <input type="number" name="latitude" value="0" step="0.00001" min="-90" max="90" />
     </label>
     <label>
       Longitude (° East)
-      <input type="number" name="longitude" value="0" step="0.1" min="-180" max="180" />
+      <input type="number" name="longitude" value="0" step="0.00001" min="-180" max="180" />
     </label>
     <label>
       Minimum elevation (°)
@@ -44,11 +30,6 @@
       Use current time
     </label>
   </form>
-
-  <div class="location-actions">
-    <button type="button" data-action="useLocation">Use my location</button>
-    <span data-field="status"></span>
-  </div>
 
   <div class="vis-summary">
     <p data-field="summary">Loading sources…</p>
@@ -82,6 +63,40 @@
     padding: 1.5rem;
     border-radius: 0.75rem;
     background: rgba(10, 110, 136, 0.08);
+  }
+
+  .tool-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .tool-header h2 {
+    font-family: var(--an-font-pixel);
+    font-size: 1.1rem;
+    color: var(--an-cyan);
+    margin: 0;
+  }
+
+  .update-location-btn {
+    border: 1px solid var(--an-pink);
+    background: transparent;
+    color: var(--an-pink);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--an-font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .update-location-btn:hover {
+    background: var(--an-pink);
+    color: var(--an-navy);
   }
 
   .vis-form {
@@ -200,5 +215,5 @@
   }
 </style>
 
-<script src="../scripts/visibilityTool.js"></script>
+<script type="module" src={visibilityScriptUrl}></script>
 

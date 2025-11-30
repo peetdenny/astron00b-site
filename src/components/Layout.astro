@@ -1,5 +1,6 @@
 ---
 import "../styles/base.css";
+import headerLSTScriptUrl from "../scripts/headerLST.js?url";
 
 const { title = "AstroN00b" } = Astro.props;
 ---
@@ -26,8 +27,10 @@ const { title = "AstroN00b" } = Astro.props;
         <a href="/tools">Tools</a>
         <a href="/community">Community</a>
         <a href="/about">About</a>
+        <span class="header-lst" data-field="header-lst">LST: --:--:--</span>
       </nav>
     </header>
+    <script type="module" src={headerLSTScriptUrl}></script>
     <main>
       <slot />
     </main>

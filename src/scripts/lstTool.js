@@ -1,4 +1,5 @@
 import { localSiderealTime, hoursToHms } from "../lib/astroTime";
+import { getStoredLocation, setStoredLocation } from "../lib/locationStorage";
 
 const COMPONENT_SELECTOR = '[data-component="lst-tool"]';
 
@@ -50,10 +51,17 @@ function initLSTTool(root) {
     dateInput.disabled = useCurrent;
   };
 
+  const storedLocation = getStoredLocation();
+  if (storedLocation) {
+    latInput.value = storedLocation.latitude.toFixed(5);
+    lonInput.value = storedLocation.longitude.toFixed(5);
+  }
+
   const applyLocation = (lat, lon) => {
-    latInput.value = lat.toFixed(3);
-    lonInput.value = lon.toFixed(3);
-    setStatus(`Using ${lat.toFixed(2)}, ${lon.toFixed(2)}`);
+    latInput.value = lat.toFixed(5);
+    lonInput.value = lon.toFixed(5);
+    setStoredLocation(lat, lon);
+    setStatus(`Using ${lat.toFixed(5)}, ${lon.toFixed(5)}`);
     update();
   };
 
@@ -82,7 +90,14 @@ function initLSTTool(root) {
     });
   }
 
-  form.addEventListener("input", update);
+  form.addEventListener("input", () => {
+    const lat = Number(latInput.value);
+    const lon = Number(lonInput.value);
+    if (!isNaN(lat) && !isNaN(lon)) {
+      setStoredLocation(lat, lon);
+    }
+    update();
+  });
   setInterval(update, 1000);
   update();
 }

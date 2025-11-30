@@ -49,6 +49,17 @@ nav a:hover {
   color: var(--an-cyan);
 }
 
+.header-lst {
+  margin-left: auto;
+  font-family: var(--an-font-pixel);
+  font-size: 0.75rem;
+  color: var(--an-cyan);
+  padding: 0.3rem 0.6rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
 main {
   flex: 1;
   padding: 2rem 1.5rem;
@@ -87,5 +98,25 @@ a {
 a:hover {
   color: var(--an-cyan);
 }
+
+/* Highlight rows where the source is currently above the horizon */
+tbody tr.visible {
+  /* soft tint using your accent colour if you have one */
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color, #ffd54f) 8%,
+    transparent
+  );
+  transition: background-color 150ms ease-in-out;
+}
+
+tbody tr.visible:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color, #ffd54f) 16%,
+    transparent
+  );
+}
+
 
 

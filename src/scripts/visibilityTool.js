@@ -1,4 +1,6 @@
 import { localSiderealTime, raDecToAltAz } from "../lib/astroTime";
+import { getStoredLocation, setStoredLocation } from "../lib/locationStorage";
+import { showLocationPrompt } from "./locationPrompt.js";
 
 const COMPONENT_SELECTOR = '[data-component="visibility-tool"]';
 const DATA_URL = "/data/radio_sources_basic.json";
@@ -50,46 +52,37 @@ function initVisibilityTool(root) {
   const lonInput = form.querySelector('input[name="longitude"]');
   const minElInput = form.querySelector('input[name="minElevation"]');
 
-  const statusField = root.querySelector('[data-field="status"]');
   const summaryField = root.querySelector('[data-field="summary"]');
   const tableBody = root.querySelector('[data-field="results"]');
-  const useLocationBtn = root.querySelector('[data-action="useLocation"]');
+  const updateLocationBtn = root.querySelector('[data-action="updateLocation"]');
 
   if (!useNow || !dateInput || !latInput || !lonInput || !minElInput || !tableBody || !summaryField) {
     console.warn("Visibility tool missing required elements");
     return;
   }
 
-  const setStatus = (text, isError = false) => {
-    if (!statusField) return;
-    statusField.textContent = text;
-    statusField.style.color = isError ? "var(--an-pink)" : "var(--an-grey)";
-  };
+  const storedLocation = getStoredLocation();
+  if (storedLocation) {
+    latInput.value = storedLocation.latitude.toFixed(5);
+    lonInput.value = storedLocation.longitude.toFixed(5);
+  } else {
+    summaryField.textContent = "Please set your location to see visible sources.";
+    tableBody.innerHTML = `<tr><td colspan="7">Waiting for location...</td></tr>`;
+  }
 
-  const applyLocation = (lat, lon) => {
-    latInput.value = lat.toFixed(3);
-    lonInput.value = lon.toFixed(3);
-    setStatus(`Using ${lat.toFixed(2)}, ${lon.toFixed(2)}`);
-    update();
-  };
-
-  if (useLocationBtn) {
-    useLocationBtn.addEventListener("click", () => {
-      if (!navigator.geolocation) {
-        setStatus("Geolocation not supported in this browser.", true);
-        return;
-      }
-      setStatus("Fetching location...");
-      navigator.geolocation.getCurrentPosition(
-        (pos) => applyLocation(pos.coords.latitude, pos.coords.longitude),
-        (err) => {
-          console.error("Geolocation error", err);
-          setStatus("Could not fetch location.", true);
-        },
-        { enableHighAccuracy: true, timeout: 5000, maximumAge: 60_000 }
-      );
+  if (updateLocationBtn) {
+    updateLocationBtn.addEventListener("click", () => {
+      showLocationPrompt();
     });
   }
+
+  document.addEventListener("locationSaved", (e) => {
+    const { latitude, longitude } = e.detail;
+    latInput.value = latitude.toFixed(5);
+    lonInput.value = longitude.toFixed(5);
+    update();
+  });
+
 
   const renderRows = (entries) => {
     if (!entries.length) {
@@ -174,8 +167,16 @@ function initVisibilityTool(root) {
     renderRows(entries);
   };
 
-  form.addEventListener("input", update);
-  setInterval(update, 60_000);
+  form.addEventListener("input", () => {
+    const lat = Number(latInput.value);
+    const lon = Number(lonInput.value);
+    if (!isNaN(lat) && !isNaN(lon)) {
+      setStoredLocation(lat, lon);
+    }
+    update();
+  });
+
+  setInterval(update, 10_000);
   update();
 }
 

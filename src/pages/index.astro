@@ -1,51 +1,10 @@
 ---
-
 import Layout from "../components/Layout.astro";
+import VisibilityTool from "../components/VisibilityTool.astro";
+import LocationPrompt from "../components/LocationPrompt.astro";
 ---
 
 <Layout title="AstroN00b – Radio Astronomy for Beginners">
-  <h1>Astron00b</h1>
-  <p>Radio astronomy for curious beginners. Learn along with me as we build H&nbsp;I scopes, explore the sky, and grow a community.</p>
-  <section class="gif-footer">
-    <h2>Meet the Astron00b mascots</h2>
-    <div class="gif-grid">
-      <img src="/images/astronoob_1.gif" alt="Astron00b observing" />
-      <img src="/images/astronoob_2.gif" alt="Astron00b dish animation" />
-      <img src="/images/astronoob_3.gif" alt="Astron00b data crunching" />
-      <img src="/images/astronoob_4.gif" alt="Astron00b community vibes" />
-    </div>
-  </section>
+  <LocationPrompt />
+  <VisibilityTool />
 </Layout>
-
-<style>
-  .gif-footer {
-    margin-top: 3rem;
-    padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 0.75rem;
-    background: rgba(255, 255, 255, 0.03);
-  }
-
-  .gif-footer h2 {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--an-cyan);
-  }
-
-  .gif-grid {
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1rem;
-  }
-
-  .gif-grid img {
-    width: 100%;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    background: #000;
-  }
-</style>
-
