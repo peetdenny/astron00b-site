@@ -1,6 +1,5 @@
 ---
 import "../styles/base.css";
-import headerLSTScriptUrl from "../scripts/headerLST.js?url";
 
 const { title = "AstroN00b" } = Astro.props;
 ---
@@ -30,13 +29,14 @@ const { title = "AstroN00b" } = Astro.props;
         <span class="header-lst" data-field="header-lst">LST: --:--:--</span>
       </nav>
     </header>
-    <script type="module" src={headerLSTScriptUrl}></script>
     <main>
       <slot />
     </main>
     <footer>
       <p>© {new Date().getFullYear()} AstroN00b</p>
     </footer>
+    <script src="../scripts/headerLST.js"></script>
+
   </body>
 </html>
 

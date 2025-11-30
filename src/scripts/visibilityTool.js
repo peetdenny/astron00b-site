@@ -1,6 +1,6 @@
-import { localSiderealTime, raDecToAltAz } from "../lib/astroTime.js";
-import { getStoredLocation, setStoredLocation } from "../lib/locationStorage.js";
-import { showLocationPrompt } from "./locationPrompt.js";
+import { localSiderealTime, raDecToAltAz } from "../lib/astroTime";
+import { getStoredLocation, setStoredLocation } from "../lib/locationStorage";
+import { showLocationPrompt } from "./locationPrompt";
 
 const COMPONENT_SELECTOR = '[data-component="visibility-tool"]';
 const DATA_URL = "/data/radio_sources_basic.json";
