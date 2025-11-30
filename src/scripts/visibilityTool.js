@@ -1,5 +1,5 @@
-import { localSiderealTime, raDecToAltAz } from "../lib/astroTime";
-import { getStoredLocation, setStoredLocation } from "../lib/locationStorage";
+import { localSiderealTime, raDecToAltAz } from "../lib/astroTime.js";
+import { getStoredLocation, setStoredLocation } from "../lib/locationStorage.js";
 import { showLocationPrompt } from "./locationPrompt.js";
 
 const COMPONENT_SELECTOR = '[data-component="visibility-tool"]';

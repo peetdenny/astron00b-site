@@ -1,5 +1,5 @@
-import { localSiderealTime, hoursToHms } from "../lib/astroTime";
-import { getStoredLocation } from "../lib/locationStorage";
+import { localSiderealTime, hoursToHms } from "../lib/astroTime.js";
+import { getStoredLocation } from "../lib/locationStorage.js";
 
 const LST_SELECTOR = '[data-field="header-lst"]';
 

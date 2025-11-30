@@ -1,4 +1,4 @@
-import { setStoredLocation, hasStoredLocation } from "../lib/locationStorage";
+import { setStoredLocation, hasStoredLocation } from "../lib/locationStorage.js";
 
 const COMPONENT_SELECTOR = '[data-component="location-prompt"]';
 const MODAL_VISIBLE_CLASS = "modal-visible";
