@@ -43,17 +43,21 @@ export const GET: APIRoute = async ({ request }) => {
  * Body: { name, latitude, longitude, dishSize, dishUnit }
  */
 export const POST: APIRoute = async ({ request }) => {
+  console.log('POST /api/scopes - Starting...');
   const user = await getUser(request);
 
   if (!user) {
+    console.log('Unauthorized access to /api/scopes');
     return new Response(JSON.stringify({ error: 'Unauthorized' }), {
       status: 401,
       headers: { 'Content-Type': 'application/json' },
     });
   }
+  console.log('User:', user.email);
 
   try {
     const body = await request.json();
+    console.log('Request body:', body);
     const { name, latitude, longitude, dishSize, dishUnit = 'mm' } = body;
 
     // Validate required fields
@@ -94,7 +98,9 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Get country from coordinates
+    console.log('Getting country from coordinates...');
     const country = await getCountryFromCoordinatesCached(lat, lon);
+    console.log('Country:', country);
 
     // Create scope
     const newScope: Scope = {
@@ -108,8 +114,10 @@ export const POST: APIRoute = async ({ request }) => {
       updatedAt: new Date(),
     };
 
+    console.log('Inserting scope into database...');
     const scopes = await getScopesCollection();
     const result = await scopes.insertOne(newScope);
+    console.log('Scope inserted:', result.insertedId);
 
     return new Response(
       JSON.stringify({

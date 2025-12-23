@@ -217,57 +217,66 @@ if (!user) {
 </style>
 
 <script>
-  const form = document.getElementById('scope-form') as HTMLFormElement;
+  console.log('=== SCOPE FORM SCRIPT LOADED ===');
+  const form = document.getElementById('scope-form');
+  console.log('Form element:', form);
   const errorDiv = document.getElementById('form-error');
   const successDiv = document.getElementById('form-success');
 
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  if (form) {
+    console.log('=== ATTACHING SUBMIT LISTENER ===');
+    form.addEventListener('submit', async (e) => {
+      console.log('=== FORM SUBMITTED ===');
+      e.preventDefault();
 
-    if (errorDiv) errorDiv.style.display = 'none';
-    if (successDiv) successDiv.style.display = 'none';
+      if (errorDiv) errorDiv.style.display = 'none';
+      if (successDiv) successDiv.style.display = 'none';
 
-    const formData = new FormData(form);
-    const data = {
-      name: formData.get('name'),
-      latitude: formData.get('latitude'),
-      longitude: formData.get('longitude'),
-      dishSize: formData.get('dishSize'),
-      dishUnit: formData.get('dishUnit'),
-    };
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        latitude: formData.get('latitude'),
+        longitude: formData.get('longitude'),
+        dishSize: formData.get('dishSize'),
+        dishUnit: formData.get('dishUnit'),
+      };
 
-    try {
-      const response = await fetch('/api/scopes', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      console.log('Form data:', data);
+      console.log('Sending POST request...');
+      
+      try {
+        const response = await fetch('/api/scopes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      if (response.ok) {
-        if (successDiv) {
-          successDiv.textContent = 'Scope created successfully! Redirecting...';
-          successDiv.style.display = 'block';
+        if (response.ok) {
+          if (successDiv) {
+            successDiv.textContent = 'Scope created successfully! Redirecting...';
+            successDiv.style.display = 'block';
+          }
+          setTimeout(() => {
+            window.location.href = '/dashboard';
+          }, 1000);
+        } else {
+          if (errorDiv) {
+            errorDiv.textContent = result.error || 'Failed to create scope';
+            errorDiv.style.display = 'block';
+          }
         }
-        setTimeout(() => {
-          window.location.href = '/dashboard';
-        }, 1000);
-      } else {
+      } catch (error) {
+        console.error('Error:', error);
         if (errorDiv) {
-          errorDiv.textContent = result.error || 'Failed to create scope';
+          errorDiv.textContent = 'Network error. Please try again.';
           errorDiv.style.display = 'block';
         }
       }
-    } catch (error) {
-      console.error('Error:', error);
-      if (errorDiv) {
-        errorDiv.textContent = 'Network error. Please try again.';
-        errorDiv.style.display = 'block';
-      }
-    }
-  });
+    });
+  }
 </script>
 

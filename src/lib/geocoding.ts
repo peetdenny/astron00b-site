@@ -36,27 +36,38 @@ export async function getCountryFromCoordinates(
     url.searchParams.set('zoom', '3'); // Country level
     url.searchParams.set('addressdetails', '1');
 
-    // Make request with required User-Agent header
-    const response = await fetch(url.toString(), {
-      headers: {
-        'User-Agent': USER_AGENT,
-      },
-    });
+    // Make request with required User-Agent header and timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+    
+    try {
+      const response = await fetch(url.toString(), {
+        headers: {
+          'User-Agent': USER_AGENT,
+        },
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
 
-    if (!response.ok) {
-      console.error('Nominatim API error:', response.status);
+      if (!response.ok) {
+        console.error('Nominatim API error:', response.status);
+        return 'Unknown';
+      }
+
+      const data: NominatimResponse = await response.json();
+
+      if (data.error) {
+        console.error('Nominatim error:', data.error);
+        return 'Unknown';
+      }
+
+      const country = data.address?.country;
+      return country || 'Unknown';
+    } catch (fetchError) {
+      clearTimeout(timeoutId);
+      console.error('Geocoding fetch error:', fetchError);
       return 'Unknown';
     }
-
-    const data: NominatimResponse = await response.json();
-
-    if (data.error) {
-      console.error('Nominatim error:', data.error);
-      return 'Unknown';
-    }
-
-    const country = data.address?.country;
-    return country || 'Unknown';
   } catch (error) {
     console.error('Geocoding error:', error);
     return 'Unknown';
@@ -76,6 +87,8 @@ export async function getCountryFromCoordinatesCached(
   latitude: number,
   longitude: number
 ): Promise<string> {
+  console.log(`Geocoding: lat=${latitude}, lon=${longitude}`);
+  
   // Round to 0.1 degree for cache key
   const lat = Math.round(latitude * 10) / 10;
   const lon = Math.round(longitude * 10) / 10;
@@ -83,11 +96,14 @@ export async function getCountryFromCoordinatesCached(
 
   // Check cache
   if (geocodeCache.has(cacheKey)) {
+    console.log('Geocoding: Using cached result');
     return geocodeCache.get(cacheKey)!;
   }
 
+  console.log('Geocoding: Fetching from Nominatim...');
   // Fetch and cache
   const country = await getCountryFromCoordinates(latitude, longitude);
+  console.log(`Geocoding: Result = ${country}`);
   geocodeCache.set(cacheKey, country);
 
   return country;
