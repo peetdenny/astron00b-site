@@ -1,14 +1,3 @@
 [build]
   command = "npm run build"
   publish = "dist"
-
-[functions]
-  directory = "dist/functions"
-  node_bundler = "esbuild"
-
-# Redirect all requests to the Astro SSR function
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/entry"
-  status = 200
-
