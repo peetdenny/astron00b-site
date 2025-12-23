@@ -37,8 +37,13 @@ export const GET: APIRoute = async ({ redirect }) => {
   authUrl.searchParams.set('code_challenge_method', 'S256');
 
   // Store state and code verifier in cookies
-  const stateCookie = `oauth_state=${state}; HttpOnly; SameSite=Lax; Path=/; Max-Age=600`;
-  const verifierCookie = `oauth_verifier=${codeVerifier}; HttpOnly; SameSite=Lax; Path=/; Max-Age=600`;
+  
+  
+  const isProduction = SITE_URL.startsWith('https://');
+  const secureFlag = isProduction ? '; Secure' : '';
+  const stateCookie = `oauth_state=${state}; HttpOnly; SameSite=Lax; Path=/; Max-Age=600${secureFlag}`;
+  const verifierCookie = `oauth_verifier=${codeVerifier}; HttpOnly; SameSite=Lax; Path=/; Max-Age=600${secureFlag}`;
+
 
   // Use Headers API to set multiple cookies
   const headers = new Headers();
