@@ -74,6 +74,7 @@ export const GET: APIRoute = async ({ request, redirect }) => {
     }
 
     // Make direct token request (bypassing oauth4webapi's strict validation)
+    console.log('Step 1: Exchanging code for token...');
     const tokenRequestBody = new URLSearchParams({
       grant_type: 'authorization_code',
       code: code,
@@ -90,6 +91,7 @@ export const GET: APIRoute = async ({ request, redirect }) => {
       },
       body: tokenRequestBody.toString(),
     });
+    console.log('Step 2: Token response received, status:', tokenResponse.status);
 
     if (!tokenResponse.ok) {
       const errorText = await tokenResponse.text();
@@ -98,8 +100,10 @@ export const GET: APIRoute = async ({ request, redirect }) => {
 
     const tokenData = await tokenResponse.json();
     const accessToken = tokenData.access_token;
+    console.log('Step 3: Got access token');
 
     // Fetch user info from Google
+    console.log('Step 4: Fetching user info...');
     const userinfoResponse = await fetch(userinfoEndpoint, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -111,14 +115,20 @@ export const GET: APIRoute = async ({ request, redirect }) => {
     }
 
     const userInfo: GoogleUserInfo = await userinfoResponse.json();
+    console.log('Step 5: Got user info for:', userInfo.email);
 
     // Create or update user in database
+    console.log('Step 6: Connecting to MongoDB...');
     const users = await getUsersCollection();
+    console.log('Step 7: MongoDB connected');
     
+    console.log('Step 8: Looking up user...');
     let user = await users.findOne({ googleId: userInfo.sub });
+    console.log('Step 9: User lookup complete, exists:', !!user);
 
     if (!user) {
       // Create new user
+      console.log('Step 10: Creating new user...');
       const newUser: User = {
         googleId: userInfo.sub,
         email: userInfo.email,
@@ -130,10 +140,12 @@ export const GET: APIRoute = async ({ request, redirect }) => {
       };
 
       const result = await users.insertOne(newUser);
+      console.log('Step 11: User created with ID:', result.insertedId);
       newUser._id = result.insertedId;
       user = newUser;
     } else {
       // Update existing user (including picture in case it changed)
+      console.log('Step 10: Updating existing user...');
       await users.updateOne(
         { googleId: userInfo.sub },
         {
@@ -145,10 +157,13 @@ export const GET: APIRoute = async ({ request, redirect }) => {
           },
         }
       );
+      console.log('Step 11: User updated');
     }
 
     // Create session
+    console.log('Step 12: Creating session...');
     const sessionToken = await createSession(user);
+    console.log('Step 13: Session created');
     const sessionCookie = createSessionCookie(sessionToken);
 
     // Clear OAuth cookies
@@ -163,6 +178,7 @@ export const GET: APIRoute = async ({ request, redirect }) => {
     headers.append('Set-Cookie', clearVerifierCookie);
 
     // Redirect to dashboard
+    console.log('Step 14: Redirecting to dashboard');
     return new Response(null, {
       status: 302,
       headers,
