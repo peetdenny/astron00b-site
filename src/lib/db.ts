@@ -1,0 +1,111 @@
+import { MongoClient, type Db, type Collection, ObjectId } from 'mongodb';
+
+// MongoDB client singleton
+let client: MongoClient | null = null;
+let clientPromise: Promise<MongoClient> | null = null;
+
+/**
+ * Get MongoDB client (creates connection if needed)
+ */
+export function getClient(): Promise<MongoClient> {
+  if (!clientPromise) {
+    const uri = import.meta.env?.MONGODB_URI || process.env.MONGODB_URI;
+    
+    if (!uri) {
+      throw new Error('MONGODB_URI environment variable is not set');
+    }
+
+    client = new MongoClient(uri);
+    clientPromise = client.connect();
+  }
+
+  return clientPromise;
+}
+
+/**
+ * Get the main database
+ */
+export async function getDatabase(): Promise<Db> {
+  const client = await getClient();
+  return client.db('astronoob');
+}
+
+/**
+ * User document type
+ */
+export interface User {
+  _id?: ObjectId;
+  googleId: string;
+  email: string;
+  username: string;
+  country: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+/**
+ * Scope document type
+ */
+export interface Scope {
+  _id?: ObjectId;
+  userId: ObjectId;
+  name: string;
+  latitude: number;
+  longitude: number;
+  country: string;
+  dishSizeMm: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+/**
+ * Get users collection
+ */
+export async function getUsersCollection(): Promise<Collection<User>> {
+  const db = await getDatabase();
+  return db.collection<User>('users');
+}
+
+/**
+ * Get scopes collection
+ */
+export async function getScopesCollection(): Promise<Collection<Scope>> {
+  const db = await getDatabase();
+  return db.collection<Scope>('scopes');
+}
+
+/**
+ * Initialize database indexes
+ * Call this once during setup
+ */
+export async function initializeIndexes(): Promise<void> {
+  try {
+    const users = await getUsersCollection();
+    const scopes = await getScopesCollection();
+
+    // Create indexes for users
+    await users.createIndex({ googleId: 1 }, { unique: true });
+    await users.createIndex({ email: 1 }, { unique: true });
+
+    // Create indexes for scopes
+    await scopes.createIndex({ userId: 1 });
+
+    console.log('Database indexes initialized successfully');
+  } catch (error) {
+    console.error('Error initializing database indexes:', error);
+    throw error;
+  }
+}
+
+/**
+ * Close database connection
+ * Use this in serverless cleanup if needed
+ */
+export async function closeConnection(): Promise<void> {
+  if (client) {
+    await client.close();
+    client = null;
+    clientPromise = null;
+  }
+}
+

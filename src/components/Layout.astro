@@ -27,6 +27,13 @@ const { title = "AstroN00b" } = Astro.props;
         <a href="/community">Community</a>
         <a href="/about">About</a>
         <span class="header-lst" data-field="header-lst">LST: --:--:--</span>
+        <span class="auth-menu" data-auth-menu>
+          <a href="/api/auth/login" data-auth-login style="display: none;">Login</a>
+          <span data-auth-user style="display: none;">
+            <a href="/dashboard" data-username></a>
+            <a href="/api/auth/logout">Logout</a>
+          </span>
+        </span>
       </nav>
     </header>
     <main>
@@ -36,6 +43,7 @@ const { title = "AstroN00b" } = Astro.props;
       <p>© {new Date().getFullYear()} AstroN00b</p>
     </footer>
     <script src="../scripts/headerLST.js"></script>
+    <script src="../scripts/authMenu.js"></script>
 
   </body>
 </html>
