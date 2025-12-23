@@ -45,7 +45,18 @@ export const GET: APIRoute = async ({ request, redirect }) => {
   const savedState = cookies['oauth_state'];
   const codeVerifier = cookies['oauth_verifier'];
 
+  // Debug logging for production troubleshooting
+  console.log('OAuth Callback Debug:', {
+    hasState: !!savedState,
+    hasVerifier: !!codeVerifier,
+    redirectUri,
+    cookieHeader: cookieHeader ? 'present' : 'missing',
+    allCookies: Object.keys(cookies),
+    siteUrl: SITE_URL,
+  });
+
   if (!savedState || !codeVerifier) {
+    console.error('Missing OAuth cookies - state:', !!savedState, 'verifier:', !!codeVerifier);
     return new Response('Missing state or verifier', { status: 400 });
   }
 

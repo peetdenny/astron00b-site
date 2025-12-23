@@ -41,6 +41,9 @@ const { title = "AstroN00b" } = Astro.props;
     </main>
     <footer>
       <p>© {new Date().getFullYear()} AstroN00b</p>
+      <p style="opacity: 0.3; font-size: 0.7rem; margin-top: 0.5rem;">
+        Build: {new Date().toISOString()}
+      </p>
     </footer>
     <script src="../scripts/headerLST.js"></script>
     <script src="../scripts/authMenu.js"></script>
