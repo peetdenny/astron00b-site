@@ -1,796 +1,723 @@
 [
-  {
-    "id": "cas-a",
-    "name": "Cas A",
-    "ra_deg": 350.85,
-    "dec_deg": 58.815,
-    "type": "SNR-Cassiopeia A",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "One of the strongest compact sources",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "cyg-a",
-    "name": "Cyg A",
-    "ra_deg": 299.8666666666667,
-    "dec_deg": 40.73388888888889,
-    "type": "3C 405",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Powerful extragalactic radio galaxy",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "tau-a",
-    "name": "Tau A",
-    "ra_deg": 83.63333333333333,
-    "dec_deg": 22.014444444444443,
-    "type": "3C 144",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Crab Nebula SNR",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "orion-a",
-    "name": "Orion A",
-    "ra_deg": 83.82083333333333,
-    "dec_deg": 4.608888888888888,
-    "type": "3C 145",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Extended H II region",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "virgo-a",
-    "name": "Virgo A",
-    "ra_deg": 187.70416666666665,
-    "dec_deg": 12.39111111111111,
-    "type": "3C 274",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "M87 galaxy; prominent jet source",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "cygnus-x",
-    "name": "Cygnus X",
-    "ra_deg": 300.0,
-    "dec_deg": 40.0,
-    "type": "Cygnus X",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Very bright extended region",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "sagittarius-a",
-    "name": "Sagittarius A",
-    "ra_deg": 265.5375,
-    "dec_deg": 27.166666666666668,
-    "type": "CTB 42",
-    "category": "beginner",
-    "freq_ghz": 0.96,
-    "notes": "Galactic Centre region (extended)",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "centaurus-a",
-    "name": "Centaurus A",
-    "ra_deg": 200.61666666666667,
-    "dec_deg": 41.233333333333334,
-    "type": "CTA 59",
-    "category": "beginner",
-    "freq_ghz": 0.96,
-    "notes": "NGC 5128",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-400",
-    "name": "3C 400",
-    "ra_deg": 290.925,
-    "dec_deg": 14.509166666666667,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "SNR complex",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-392",
-    "name": "3C 392",
-    "ra_deg": 284.025,
-    "dec_deg": 1.3,
-    "type": "SNR",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-5690",
-    "name": "NRAO 5690",
-    "ra_deg": 278.75,
-    "dec_deg": 6.666666666666667,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-390-2",
-    "name": "3C 390.2",
-    "ra_deg": 281.9916666666667,
-    "dec_deg": 0.05472222222222221,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-403-2",
-    "name": "3C 403.2",
-    "ra_deg": 298.55,
-    "dec_deg": 32.9,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-147-1",
-    "name": "3C 147.1",
-    "ra_deg": 85.42916666666667,
-    "dec_deg": 0.09527777777777775,
-    "type": "Orion B",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Flame Nebula region",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-353",
-    "name": "3C 353",
-    "ra_deg": 260.1166666666667,
-    "dec_deg": -0.9797222222222223,
-    "type": "D Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-6210",
-    "name": "NRAO 6210",
-    "ra_deg": 300.425,
-    "dec_deg": 33.28333333333333,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-387",
-    "name": "3C 387",
-    "ra_deg": 280.25,
-    "dec_deg": 4.733333333333333,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-123",
-    "name": "3C 123",
-    "ra_deg": 69.26666666666668,
-    "dec_deg": 29.670555555555556,
-    "type": "Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-5980",
-    "name": "NRAO 5980",
-    "ra_deg": 287.5791666666667,
-    "dec_deg": 9.06861111111111,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-273",
-    "name": "3C 273",
-    "ra_deg": 187.27916666666664,
-    "dec_deg": 2.0524999999999998,
-    "type": "Quasar",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Very bright quasar",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-6500",
-    "name": "NRAO 6500",
-    "ra_deg": 318.0875,
-    "dec_deg": 52.48277777777778,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-348",
-    "name": "3C 348",
-    "ra_deg": 252.78333333333336,
-    "dec_deg": 4.9927777777777775,
-    "type": "D Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-10",
-    "name": "3C 10",
-    "ra_deg": 6.304166666666667,
-    "dec_deg": 64.14500000000001,
-    "type": "Tycho's SNR",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-218",
-    "name": "3C 218",
-    "ra_deg": 139.525,
-    "dec_deg": 11.904444444444444,
-    "type": "D Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-139-1",
-    "name": "3C 139.1",
-    "ra_deg": 80.60416666666666,
-    "dec_deg": 33.49861111111111,
-    "type": "Emission Nebula",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-6620",
-    "name": "NRAO 6620",
-    "ra_deg": 322.35,
-    "dec_deg": 50.8,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-6020",
-    "name": "NRAO 6020",
-    "ra_deg": 288.925,
-    "dec_deg": 11.033333333333333,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-398",
-    "name": "3C 398",
-    "ra_deg": 287.7875,
-    "dec_deg": 9.106666666666666,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-5720",
-    "name": "NRAO 5720",
-    "ra_deg": 279.5625,
-    "dec_deg": 5.206388888888889,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-153-1",
-    "name": "3C 153.1",
-    "ra_deg": 92.4,
-    "dec_deg": 20.488611111111112,
-    "type": "Emission Nebula",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-1560",
-    "name": "NRAO 1560",
-    "ra_deg": 61.208333333333336,
-    "dec_deg": 51.37166666666667,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-147",
-    "name": "3C 147",
-    "ra_deg": 85.65,
-    "dec_deg": 49.85194444444445,
-    "type": "Quasar",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Standard flux calibrator",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-295",
-    "name": "3C 295",
-    "ra_deg": 212.8375,
-    "dec_deg": 52.2025,
-    "type": "D Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-391",
-    "name": "3C 391",
-    "ra_deg": 282.34166666666664,
-    "dec_deg": -0.9225,
-    "type": "SNR",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-1650",
-    "name": "NRAO 1650",
-    "ra_deg": 62.77083333333334,
-    "dec_deg": 51.15222222222222,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-161",
-    "name": "3C 161",
-    "ra_deg": 96.79166666666667,
-    "dec_deg": 4.115277777777778,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-5790",
-    "name": "NRAO 5790",
-    "ra_deg": 281.52916666666664,
-    "dec_deg": 1.2766666666666666,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-270",
-    "name": "3C 270",
-    "ra_deg": 184.84583333333333,
-    "dec_deg": 5.825833333333333,
-    "type": "Elliptical Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-48",
-    "name": "3C 48",
-    "ra_deg": 24.420833333333334,
-    "dec_deg": 33.15972222222222,
-    "type": "Quasar",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Standard calibrator",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-111",
-    "name": "3C 111",
-    "ra_deg": 64.58749999999999,
-    "dec_deg": 38.026666666666664,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-286",
-    "name": "3C 286",
-    "ra_deg": 202.78333333333336,
-    "dec_deg": 30.509166666666665,
-    "type": "Quasar",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "Primary flux calibration standard",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-5840",
-    "name": "NRAO 5840",
-    "ra_deg": 283.3333333333333,
-    "dec_deg": 1.2483333333333333,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-84",
-    "name": "3C 84",
-    "ra_deg": 49.949999999999996,
-    "dec_deg": 41.51166666666666,
-    "type": "Seyfert Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-196",
-    "name": "3C 196",
-    "ra_deg": 123.4,
-    "dec_deg": 48.2175,
-    "type": "Quasar",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-380",
-    "name": "3C 380",
-    "ra_deg": 277.3833333333334,
-    "dec_deg": 48.74638888888889,
-    "type": "Quasar",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-5890",
-    "name": "NRAO 5890",
-    "ra_deg": 285.45,
-    "dec_deg": 1.781388888888889,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-396",
-    "name": "3C 396",
-    "ra_deg": 285.9916666666667,
-    "dec_deg": 5.375,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-397",
-    "name": "3C 397",
-    "ra_deg": 286.9166666666667,
-    "dec_deg": 7.144166666666667,
-    "type": "SNR",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-409",
-    "name": "3C 409",
-    "ra_deg": 303.6166666666667,
-    "dec_deg": 23.58277777777778,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-33",
-    "name": "3C 33",
-    "ra_deg": 17.220833333333335,
-    "dec_deg": 13.337222222222223,
-    "type": "Elliptical Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-20",
-    "name": "3C 20",
-    "ra_deg": 10.7875,
-    "dec_deg": 52.059444444444445,
-    "type": "Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-5670",
-    "name": "NRAO 5670",
-    "ra_deg": 278.0,
-    "dec_deg": 1.9333333333333333,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-390-3",
-    "name": "3C 390.3",
-    "ra_deg": 280.5375,
-    "dec_deg": 79.7713888888889,
-    "type": "N Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-433",
-    "name": "3C 433",
-    "ra_deg": 320.9375,
-    "dec_deg": 25.071666666666665,
-    "type": "D Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-434-1",
-    "name": "3C 434.1",
-    "aliases": ["ASB 68","AJG 108","NRAO 660","3C 434.1","NEK 94.2+00.9","GRS G094.00 +01.00"],
-    "ra_deg": 321.2666666666667,
-    "dec_deg": 51.88111111111111,
-    "type": "SNR",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-279",
-    "name": "3C 279",
-    "ra_deg": 194.04583333333332,
-    "dec_deg": 4.210555555555556,
-    "type": "Quasar",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-6070",
-    "name": "NRAO 6070",
-    "ra_deg": 289.525,
-    "dec_deg": 12.2,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-452",
-    "name": "3C 452",
-    "ra_deg": 341.45416666666665,
-    "dec_deg": 39.687777777777775,
-    "type": "Elliptical Galaxy",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-454-3",
-    "name": "3C 454.3",
-    "ra_deg": 343.4916666666667,
-    "dec_deg": 16.148333333333333,
-    "type": "Quasar",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "nrao-6010",
-    "name": "NRAO 6010",
-    "ra_deg": 288.58333333333337,
-    "dec_deg": 11.151666666666667,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  },
-  {
-    "id": "3c-410",
-    "name": "3C 410",
-    "ra_deg": 305.02916666666664,
-    "dec_deg": 29.703888888888887,
-    "type": "radio source",
-    "category": "beginner",
-    "freq_ghz": 1.42,
-    "notes": "",
-    "refs": [
-      "https://reeve.com/Documents/Articles%20Papers/Reeve_CelestialRadioSources.pdf"
-    ]
-  }
-]
+    {
+      "id": "3c_20",
+      "primary_name": "3C 20",
+      "catalog_ids": ["3C 20"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Moderately strong FRII radio galaxy; continuum-only detection with a 1 m dish is challenging."
+    },
+    {
+      "id": "3c_10",
+      "primary_name": "3C 10",
+      "catalog_ids": ["3C 10"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Compact double source; likely too faint in continuum for easy small-dish work."
+    },
+    {
+      "id": "cas_a",
+      "primary_name": "Cassiopeia A",
+      "catalog_ids": ["Cas A", "3C 461"],
+      "source_type": "supernova_remnant",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 1700,
+      "ta_estimate_kelvin_1m": 0.27,
+      "snr_1min_1mhz_1m": 14.0,
+      "difficulty": "beginner",
+      "notes": "One of the brightest compact continuum sources; a primary beginner continuum target."
+    },
+    {
+      "id": "3c_48",
+      "primary_name": "3C 48",
+      "catalog_ids": ["3C 48"],
+      "source_type": "quasar",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 16,
+      "ta_estimate_kelvin_1m": 0.0025,
+      "snr_1min_1mhz_1m": 0.1,
+      "difficulty": "advanced",
+      "notes": "Standard calibrator for big arrays; only a few mK signal in a 1 m dish, so very demanding."
+    },
+    {
+      "id": "3c_452",
+      "primary_name": "3C 452",
+      "catalog_ids": ["3C 452"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "FRII radio galaxy; continuum-only detection is an advanced project."
+    },
+    {
+      "id": "nrao_6620",
+      "primary_name": "NRAO 6620",
+      "catalog_ids": ["NRAO 6620"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Generic strong NRAO catalogue source; suitable as an advanced continuum experiment."
+    },
+    {
+      "id": "3c_434_1",
+      "primary_name": "3C 434.1",
+      "catalog_ids": ["3C 434.1"],
+      "source_type": "supernova_remnant",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Extended SNR with low surface brightness; difficult for small apertures."
+    },
+    {
+      "id": "3c_84",
+      "primary_name": "Perseus A",
+      "catalog_ids": ["3C 84"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 25,
+      "ta_estimate_kelvin_1m": 0.0039,
+      "snr_1min_1mhz_1m": 0.2,
+      "difficulty": "intermediate",
+      "notes": "Bright radio galaxy in the Perseus cluster; a reasonable stretch target after Cas A / Cyg A with long integrations."
+    },
+    {
+      "id": "nrao_6500",
+      "primary_name": "NRAO 6500",
+      "catalog_ids": ["NRAO 6500"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target; expect mK-level signals with a 1 m dish."
+    },
+    {
+      "id": "nrao_1560",
+      "primary_name": "NRAO 1560",
+      "catalog_ids": ["NRAO 1560"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target for larger dishes or very patient observers."
+    },
+    {
+      "id": "nrao_1650",
+      "primary_name": "NRAO 1650",
+      "catalog_ids": ["NRAO 1650"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum source; not recommended as a first detection."
+    },
+    {
+      "id": "3c_390_3",
+      "primary_name": "3C 390.3",
+      "catalog_ids": ["3C 390.3"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Broad-line radio galaxy; continuum-only small-dish detection is an advanced task."
+    },
+    {
+      "id": "3c_33",
+      "primary_name": "3C 33",
+      "catalog_ids": ["3C 33"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Narrow-line radio galaxy; suitable as an advanced continuum target."
+    },
+    {
+      "id": "3c_111",
+      "primary_name": "3C 111",
+      "catalog_ids": ["3C 111"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "FRII radio galaxy; better suited to larger dishes or interferometers."
+    },
+    {
+      "id": "3c_454_3",
+      "primary_name": "3C 454.3",
+      "catalog_ids": ["3C 454.3"],
+      "source_type": "blazar",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 20,
+      "ta_estimate_kelvin_1m": 0.0031,
+      "snr_1min_1mhz_1m": 0.2,
+      "difficulty": "advanced",
+      "notes": "Highly variable blazar; continuum-only detection is demanding and not a beginner target."
+    },
+    {
+      "id": "3c_433",
+      "primary_name": "3C 433",
+      "catalog_ids": ["3C 433"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Double-lobed source; continuum detection is in the advanced regime for 1 m dishes."
+    },
+    {
+      "id": "3c_147",
+      "primary_name": "3C 147",
+      "catalog_ids": ["3C 147"],
+      "source_type": "quasar",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 22,
+      "ta_estimate_kelvin_1m": 0.0034,
+      "snr_1min_1mhz_1m": 0.2,
+      "difficulty": "advanced",
+      "notes": "Widely used flux calibrator; only ~3–4 mK in a 1 m dish, so definitely advanced."
+    },
+    {
+      "id": "cyg_a",
+      "primary_name": "Cygnus A",
+      "catalog_ids": ["Cyg A", "3C 405"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 1600,
+      "ta_estimate_kelvin_1m": 0.25,
+      "snr_1min_1mhz_1m": 13.0,
+      "difficulty": "beginner",
+      "notes": "One of the brightest extragalactic radio galaxies; alongside Cas A, a primary beginner continuum target."
+    },
+    {
+      "id": "cygnus_x",
+      "primary_name": "Cygnus X region",
+      "catalog_ids": ["Cygnus X"],
+      "source_type": "galactic_complex",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 1000,
+      "ta_estimate_kelvin_1m": 0.16,
+      "snr_1min_1mhz_1m": 8.0,
+      "difficulty": "beginner",
+      "notes": "Very bright extended emission region; excellent for drift scans and demonstrating continuum structure."
+    },
+    {
+      "id": "3c_123",
+      "primary_name": "3C 123",
+      "catalog_ids": ["3C 123"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 45,
+      "ta_estimate_kelvin_1m": 0.0070,
+      "snr_1min_1mhz_1m": 0.4,
+      "difficulty": "intermediate",
+      "notes": "Strong source on the 3C scale; a plausible intermediate continuum target with long integrations."
+    },
+    {
+      "id": "3c_410",
+      "primary_name": "3C 410",
+      "catalog_ids": ["3C 410"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 50,
+      "ta_estimate_kelvin_1m": 0.0078,
+      "snr_1min_1mhz_1m": 0.4,
+      "difficulty": "intermediate",
+      "notes": "Strong FRII galaxy; a decent stretch target beyond Cas A / Cyg A for continuum enthusiasts."
+    },
+    {
+      "id": "nrao_6210",
+      "primary_name": "NRAO 6210",
+      "catalog_ids": ["NRAO 6210"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum source; likely too faint for most 1 m systems."
+    },
+    {
+      "id": "3c_403_2",
+      "primary_name": "3C 403.2",
+      "catalog_ids": ["3C 403.2"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Extended radio galaxy; advanced continuum project."
+    },
+    {
+      "id": "3c_139_1",
+      "primary_name": "3C 139.1",
+      "catalog_ids": ["3C 139.1"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Moderately strong 3C source; better treated as advanced continuum work."
+    },
+    {
+      "id": "3c_380",
+      "primary_name": "3C 380",
+      "catalog_ids": ["3C 380"],
+      "source_type": "quasar",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 40,
+      "ta_estimate_kelvin_1m": 0.0062,
+      "snr_1min_1mhz_1m": 0.3,
+      "difficulty": "intermediate",
+      "notes": "Bright, compact steep-spectrum source; an intermediate continuum target."
+    },
+    {
+      "id": "3c_409",
+      "primary_name": "3C 409",
+      "catalog_ids": ["3C 409"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "FRII radio galaxy; best kept for advanced observers."
+    },
+    {
+      "id": "tau_a",
+      "primary_name": "Taurus A",
+      "catalog_ids": ["Tau A", "3C 144"],
+      "source_type": "supernova_remnant",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 800,
+      "ta_estimate_kelvin_1m": 0.12,
+      "snr_1min_1mhz_1m": 6.0,
+      "difficulty": "intermediate",
+      "notes": "Crab Nebula; bright but extended, so beam dilution makes it trickier than Cas A/Cyg A."
+    },
+    {
+      "id": "3c_196",
+      "primary_name": "3C 196",
+      "catalog_ids": ["3C 196"],
+      "source_type": "quasar",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 20,
+      "ta_estimate_kelvin_1m": 0.0031,
+      "snr_1min_1mhz_1m": 0.2,
+      "difficulty": "advanced",
+      "notes": "Calibrator-grade source for arrays; advanced continuum work for small dishes."
+    },
+    {
+      "id": "3c_153_1",
+      "primary_name": "3C 153.1",
+      "catalog_ids": ["3C 153.1"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Listed as strong in Reeve, but in practice an advanced target for small single dishes."
+    },
+    {
+      "id": "3c_400",
+      "primary_name": "3C 400",
+      "catalog_ids": ["3C 400"],
+      "source_type": "supernova_remnant_complex",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "SNR complex with low surface brightness; advanced mapping target."
+    },
+    {
+      "id": "3c_295",
+      "primary_name": "3C 295",
+      "catalog_ids": ["3C 295"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 23,
+      "ta_estimate_kelvin_1m": 0.0036,
+      "snr_1min_1mhz_1m": 0.2,
+      "difficulty": "advanced",
+      "notes": "Compact calibrator; advanced continuum project."
+    },
+    {
+      "id": "nrao_6070",
+      "primary_name": "NRAO 6070",
+      "catalog_ids": ["NRAO 6070"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "nrao_6020",
+      "primary_name": "NRAO 6020",
+      "catalog_ids": ["NRAO 6020"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "nrao_6010",
+      "primary_name": "NRAO 6010",
+      "catalog_ids": ["NRAO 6010"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "sagittarius_a",
+      "primary_name": "Sagittarius A region",
+      "catalog_ids": ["Sagittarius A"],
+      "source_type": "galactic_centre_region",
+      "emission_type": "mixed",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Very rich HI + continuum region near the Galactic Centre; low elevation and confusion make it an advanced target."
+    },
+    {
+      "id": "orion_a",
+      "primary_name": "Orion A",
+      "catalog_ids": ["Orion A"],
+      "source_type": "hii_region_complex",
+      "emission_type": "mixed",
+      "typical_flux_jy_1p4ghz": 400,
+      "ta_estimate_kelvin_1m": 0.062,
+      "snr_1min_1mhz_1m": 3.2,
+      "difficulty": "intermediate",
+      "notes": "Orion Nebula / M42 region; strong HI and continuum. A good intermediate spectral-line target and a marginal continuum target for a 1 m dish."
+    },
+    {
+      "id": "3c_398",
+      "primary_name": "3C 398",
+      "catalog_ids": ["3C 398"],
+      "source_type": "supernova_remnant",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Galactic SNR; extended and faint for small dishes."
+    },
+    {
+      "id": "nrao_5980",
+      "primary_name": "NRAO 5980",
+      "catalog_ids": ["NRAO 5980"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "3c_397",
+      "primary_name": "3C 397",
+      "catalog_ids": ["3C 397"],
+      "source_type": "supernova_remnant",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "SNR with complex structure; advanced continuum project."
+    },
+    {
+      "id": "3c_396",
+      "primary_name": "3C 396",
+      "catalog_ids": ["3C 396"],
+      "source_type": "supernova_remnant",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Extended SNR; low surface brightness for a 1 m dish."
+    },
+    {
+      "id": "3c_147_1",
+      "primary_name": "Flame Nebula region",
+      "catalog_ids": ["3C 147.1"],
+      "source_type": "hii_region_complex",
+      "emission_type": "mixed",
+      "typical_flux_jy_1p4ghz": 300,
+      "ta_estimate_kelvin_1m": 0.047,
+      "snr_1min_1mhz_1m": 2.4,
+      "difficulty": "intermediate",
+      "notes": "Flame Nebula / NGC 2024 region; bright in HI and continuum, but extended. Good for line work and intermediate continuum experiments."
+    },
+    {
+      "id": "nrao_5890",
+      "primary_name": "NRAO 5890",
+      "catalog_ids": ["NRAO 5890"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "nrao_5690",
+      "primary_name": "NRAO 5690",
+      "catalog_ids": ["NRAO 5690"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "3c_161",
+      "primary_name": "3C 161",
+      "catalog_ids": ["3C 161"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Moderately strong 3C source; not recommended for beginners."
+    },
+    {
+      "id": "3c_387",
+      "primary_name": "3C 387",
+      "catalog_ids": ["3C 387"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "FRII radio galaxy; advanced continuum target."
+    },
+    {
+      "id": "nrao_5720",
+      "primary_name": "NRAO 5720",
+      "catalog_ids": ["NRAO 5720"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "3c_392",
+      "primary_name": "3C 392",
+      "catalog_ids": ["3C 392"],
+      "source_type": "supernova_remnant",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Galactic SNR; low surface brightness makes this advanced."
+    },
+    {
+      "id": "centaurus_a",
+      "primary_name": "Centaurus A",
+      "catalog_ids": ["Centaurus A", "NGC 5128"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 1000,
+      "ta_estimate_kelvin_1m": 0.16,
+      "snr_1min_1mhz_1m": 8.0,
+      "difficulty": "advanced",
+      "notes": "Extremely bright FR I galaxy but far south for many observers; geometric constraints dominate."
+    },
+    {
+      "id": "nrao_5840",
+      "primary_name": "NRAO 5840",
+      "catalog_ids": ["NRAO 5840"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "nrao_5790",
+      "primary_name": "NRAO 5790",
+      "catalog_ids": ["NRAO 5790"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "3c_390_2",
+      "primary_name": "3C 390.2",
+      "catalog_ids": ["3C 390.2"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "3c_391",
+      "primary_name": "3C 391",
+      "catalog_ids": ["3C 391"],
+      "source_type": "supernova_remnant",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Extended SNR; low surface brightness for a 1 m dish."
+    },
+    {
+      "id": "nrao_5670",
+      "primary_name": "NRAO 5670",
+      "catalog_ids": ["NRAO 5670"],
+      "source_type": "radio_source",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": null,
+      "ta_estimate_kelvin_1m": null,
+      "snr_1min_1mhz_1m": null,
+      "difficulty": "advanced",
+      "notes": "Advanced continuum target."
+    },
+    {
+      "id": "3c_286",
+      "primary_name": "3C 286",
+      "catalog_ids": ["3C 286"],
+      "source_type": "quasar",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 15,
+      "ta_estimate_kelvin_1m": 0.0023,
+      "snr_1min_1mhz_1m": 0.1,
+      "difficulty": "advanced",
+      "notes": "Primary flux calibrator; only ~2–3 mK in a 1 m dish, so not beginner territory."
+    },
+    {
+      "id": "3c_348",
+      "primary_name": "Hercules A",
+      "catalog_ids": ["3C 348"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 40,
+      "ta_estimate_kelvin_1m": 0.0062,
+      "snr_1min_1mhz_1m": 0.3,
+      "difficulty": "advanced",
+      "notes": "Spectacularly structured in interferometric images; continuum-only detection with a small dish is advanced."
+    },
+    {
+      "id": "3c_353",
+      "primary_name": "3C 353",
+      "catalog_ids": ["3C 353"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 60,
+      "ta_estimate_kelvin_1m": 0.0094,
+      "snr_1min_1mhz_1m": 0.5,
+      "difficulty": "advanced",
+      "notes": "Strong FRII source; still an advanced continuum project."
+    },
+    {
+      "id": "3c_218",
+      "primary_name": "Hydra A",
+      "catalog_ids": ["3C 218"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 40,
+      "ta_estimate_kelvin_1m": 0.0062,
+      "snr_1min_1mhz_1m": 0.3,
+      "difficulty": "advanced",
+      "notes": "Bright cluster radio galaxy; advanced for small dishes at L-band."
+    },
+    {
+      "id": "virgo_a",
+      "primary_name": "Virgo A (M87)",
+      "catalog_ids": ["Virgo A", "3C 274"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 200,
+      "ta_estimate_kelvin_1m": 0.031,
+      "snr_1min_1mhz_1m": 1.6,
+      "difficulty": "advanced",
+      "notes": "A-team source; bright but extended. Advanced continuum target for a 1 m dish."
+    },
+    {
+      "id": "3c_270",
+      "primary_name": "3C 270",
+      "catalog_ids": ["3C 270"],
+      "source_type": "radio_galaxy",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 20,
+      "ta_estimate_kelvin_1m": 0.0031,
+      "snr_1min_1mhz_1m": 0.2,
+      "difficulty": "advanced",
+      "notes": "FR I galaxy; flux too low for beginner continuum work."
+    },
+    {
+      "id": "3c_279",
+      "primary_name": "3C 279",
+      "catalog_ids": ["3C 279"],
+      "source_type": "blazar",
+      "emission_type": "continuum",
+      "typical_flux_jy_1p4ghz": 10,
+      "ta_estimate_kelvin_1m": 0.0016,
+      "snr_1min_1mhz_1m": 0.1,
+      "difficulty": "advanced",
+      "notes": "Famous blazar brightest at higher radio frequencies; not a practical L-band small-dish target."
+    }
+  ]
+  
