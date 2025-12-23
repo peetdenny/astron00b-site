@@ -39,6 +39,7 @@ export interface User {
   email: string;
   username: string;
   country: string;
+  picture?: string; // Google profile photo URL
   createdAt: Date;
   updatedAt: Date;
 }

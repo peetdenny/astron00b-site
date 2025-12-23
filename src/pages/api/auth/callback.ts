@@ -113,6 +113,7 @@ export const GET: APIRoute = async ({ request, redirect }) => {
         email: userInfo.email,
         username: userInfo.name,
         country: '', // User will fill this in later
+        picture: userInfo.picture, // Store profile photo URL
         createdAt: new Date(),
         updatedAt: new Date(),
       };
@@ -121,12 +122,13 @@ export const GET: APIRoute = async ({ request, redirect }) => {
       newUser._id = result.insertedId;
       user = newUser;
     } else {
-      // Update existing user
+      // Update existing user (including picture in case it changed)
       await users.updateOne(
         { googleId: userInfo.sub },
         {
           $set: {
             email: userInfo.email,
+            picture: userInfo.picture,
             username: userInfo.name,
             updatedAt: new Date(),
           },

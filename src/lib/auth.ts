@@ -12,6 +12,7 @@ export interface SessionData {
   userId: string;
   email: string;
   username: string;
+  picture?: string;
 }
 
 /**
@@ -22,6 +23,7 @@ export async function createSession(user: User): Promise<string> {
     userId: user._id!.toString(),
     email: user.email,
     username: user.username,
+    picture: user.picture,
   };
 
   const token = await new SignJWT(sessionData)
