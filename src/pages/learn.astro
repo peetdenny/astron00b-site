@@ -1,0 +1,246 @@
+---
+export const prerender = true;
+
+import Layout from "../components/Layout.astro";
+---
+
+<Layout title="Learn – Astron00b">
+  <div class="learn-container">
+    <h1>Learn Radio Astronomy</h1>
+    <p class="intro">Resources, guides, and educational content to help you build and operate your radio telescope.</p>
+    
+    <section class="learn-section">
+      <h2>Radio Astronomy Overview</h2>
+      <div class="resources">
+        <div class="resource-item">
+          <h3>Getting Started</h3>
+          <p>Learn the fundamentals of radio astronomy and how it differs from optical astronomy.</p>
+          <ul>
+            <li><a href="#" target="_blank">Introduction to Radio Astronomy (Video)</a></li>
+            <li><a href="#" target="_blank">Radio vs Optical Astronomy (Article)</a></li>
+          </ul>
+        </div>
+        <div class="resource-item">
+          <h3>Key Concepts</h3>
+          <p>Understanding frequency, wavelength, and the radio spectrum.</p>
+          <ul>
+            <li><a href="#" target="_blank">The Electromagnetic Spectrum (Guide)</a></li>
+            <li><a href="#" target="_blank">Radio Frequency Basics (Video)</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="learn-section">
+      <h2>Building Your First Scope</h2>
+      <div class="resources">
+        <div class="resource-item">
+          <h3>Hardware Components</h3>
+          <p>Essential components needed to build a radio telescope.</p>
+          <ul>
+            <li><a href="#" target="_blank">Dish Antenna Selection Guide</a></li>
+            <li><a href="#" target="_blank">LNA (Low Noise Amplifier) Basics</a></li>
+            <li><a href="#" target="_blank">SDR (Software Defined Radio) Setup</a></li>
+          </ul>
+        </div>
+        <div class="resource-item">
+          <h3>Assembly Guides</h3>
+          <p>Step-by-step instructions for building your telescope.</p>
+          <ul>
+            <li><a href="#" target="_blank">Complete Build Tutorial (Video Series)</a></li>
+            <li><a href="#" target="_blank">Wiring and Connections Guide</a></li>
+            <li><a href="#" target="_blank">Calibration and Testing</a></li>
+          </ul>
+        </div>
+        <div class="resource-item">
+          <h3>Recommended Books</h3>
+          <p>Essential reading for radio astronomy enthusiasts.</p>
+          <ul>
+            <li><a href="#" target="_blank">"Radio Astronomy" by John D. Kraus</a></li>
+            <li><a href="#" target="_blank">"The Radio Sky and How to Observe It" by Jeff Lashley</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="learn-section">
+      <h2>IQ Math</h2>
+      <div class="resources">
+        <div class="resource-item">
+          <h3>Understanding IQ Data</h3>
+          <p>In-phase and Quadrature signals form the foundation of digital radio astronomy.</p>
+          <ul>
+            <li><a href="#" target="_blank">IQ Signals Explained (Video)</a></li>
+            <li><a href="#" target="_blank">Complex Numbers in Radio Astronomy</a></li>
+            <li><a href="#" target="_blank">IQ Data Processing Basics</a></li>
+          </ul>
+        </div>
+        <div class="resource-item">
+          <h3>Signal Processing</h3>
+          <p>How to process and analyze IQ data from your telescope.</p>
+          <ul>
+            <li><a href="#" target="_blank">FFT and Spectral Analysis</a></li>
+            <li><a href="#" target="_blank">Waterfall Displays and Interpretation</a></li>
+            <li><a href="#" target="_blank">Noise Reduction Techniques</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="learn-section">
+      <h2>Positional Astronomy</h2>
+      <div class="resources">
+        <div class="resource-item">
+          <h3>Coordinate Systems</h3>
+          <p>Understanding celestial coordinates and how to point your telescope.</p>
+          <ul>
+            <li><a href="#" target="_blank">Right Ascension and Declination (RA/Dec)</a></li>
+            <li><a href="#" target="_blank">Azimuth and Elevation (Alt/Az)</a></li>
+            <li><a href="#" target="_blank">Coordinate Conversion Tools</a></li>
+          </ul>
+        </div>
+        <div class="resource-item">
+          <h3>Tracking and Pointing</h3>
+          <p>How to accurately point your telescope at radio sources.</p>
+          <ul>
+            <li><a href="#" target="_blank">Local Sidereal Time (LST) Explained</a></li>
+            <li><a href="#" target="_blank">Pointing Accuracy and Calibration</a></li>
+            <li><a href="#" target="_blank">Tracking Moving Sources</a></li>
+          </ul>
+        </div>
+        <div class="resource-item">
+          <h3>Useful Resources</h3>
+          <p>Tools and references for positional calculations.</p>
+          <ul>
+            <li><a href="#" target="_blank">Sky Catalog of Radio Sources</a></li>
+            <li><a href="#" target="_blank">Ephemeris Data Sources</a></li>
+            <li><a href="#" target="_blank">Position Calculation Software</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="learn-section">
+      <h2>Additional Resources</h2>
+      <div class="resources">
+        <div class="resource-item">
+          <h3>Community Forums</h3>
+          <p>Connect with other radio astronomy enthusiasts.</p>
+          <ul>
+            <li><a href="#" target="_blank">Radio Astronomy Discussion Forum</a></li>
+            <li><a href="#" target="_blank">Amateur Radio Astronomy Group</a></li>
+          </ul>
+        </div>
+        <div class="resource-item">
+          <h3>Software Tools</h3>
+          <p>Software for data acquisition and analysis.</p>
+          <ul>
+            <li><a href="#" target="_blank">GNU Radio</a></li>
+            <li><a href="#" target="_blank">SDRSharp and Alternatives</a></li>
+            <li><a href="#" target="_blank">Data Analysis Tools</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .learn-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .learn-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--an-cyan, #69f5ff);
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    color: var(--an-white, #e7e6e2);
+    margin-bottom: 3rem;
+    opacity: 0.9;
+  }
+
+  .learn-section {
+    margin-bottom: 3rem;
+    background: var(--bg-secondary, rgba(255, 255, 255, 0.05));
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(105, 245, 255, 0.2);
+  }
+
+  .learn-section h2 {
+    font-size: 1.8rem;
+    margin: 0 0 1.5rem 0;
+    color: var(--an-cyan, #69f5ff);
+    border-bottom: 2px solid rgba(105, 245, 255, 0.3);
+    padding-bottom: 0.5rem;
+  }
+
+  .resources {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .resource-item {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .resource-item h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.75rem 0;
+    color: var(--an-pink, #ff2dbe);
+  }
+
+  .resource-item p {
+    margin: 0 0 1rem 0;
+    color: var(--an-white, #e7e6e2);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .resource-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .resource-item li {
+    margin-bottom: 0.5rem;
+  }
+
+  .resource-item a {
+    color: var(--an-cyan, #69f5ff);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .resource-item a:hover {
+    color: var(--an-pink, #ff2dbe);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .learn-container h1 {
+      font-size: 2rem;
+    }
+
+    .resources {
+      grid-template-columns: 1fr;
+    }
+
+    .learn-section {
+      padding: 1.5rem;
+    }
+  }
+</style>
+

@@ -12,9 +12,16 @@ if (!user) {
 const { id } = Astro.params;
 ---
 
-<Layout title="Edit Scope – AstroN00b">
-  <div class="scope-form-container">
-    <h1>Edit Scope</h1>
+<Layout title="Scope Details – AstroN00b">
+  <div class="scope-container">
+    <div class="scope-header">
+      <h1 id="scope-name">Loading...</h1>
+      <div class="scope-actions">
+        <button id="edit-btn" class="button primary" style="display: none;">Edit</button>
+        <button id="cancel-edit-btn" class="button secondary" style="display: none;">Cancel</button>
+        <a href="/dashboard" class="button secondary">Back to Dashboard</a>
+      </div>
+    </div>
     
     <div id="node-status" class="node-status" style="display: none;">
       <div class="status-indicator">
@@ -25,6 +32,52 @@ const { id } = Astro.params;
     
     <div id="loading">Loading scope...</div>
     
+    <!-- View Mode: Scope Details -->
+    <div id="scope-details" class="scope-details" style="display: none;">
+      <div class="detail-section">
+        <h2>Location</h2>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <label>Latitude</label>
+            <p id="detail-latitude">-</p>
+          </div>
+          <div class="detail-item">
+            <label>Longitude</label>
+            <p id="detail-longitude">-</p>
+          </div>
+          <div class="detail-item">
+            <label>Country</label>
+            <p id="detail-country">-</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="detail-section">
+        <h2>Specifications</h2>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <label>Dish Diameter</label>
+            <p id="detail-dish-size">-</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="detail-section" id="heartbeat-section" style="display: none;">
+        <h2>Status</h2>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <label>Current Run</label>
+            <p id="detail-run-info">-</p>
+          </div>
+          <div class="detail-item">
+            <label>Last Capture</label>
+            <p id="detail-last-capture">-</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Edit Mode: Form -->
     <form id="scope-form" class="scope-form" style="display: none;">
       <div class="form-group">
         <label for="name">Scope Name *</label>
@@ -86,7 +139,7 @@ const { id } = Astro.params;
 
       <div class="form-actions">
         <button type="submit" class="button primary">Save Changes</button>
-        <a href="/dashboard" class="button secondary">Cancel</a>
+        <button type="button" id="cancel-form-btn" class="button secondary">Cancel</button>
       </div>
 
       <div id="form-error" class="error-message" style="display: none;"></div>
@@ -96,9 +149,112 @@ const { id } = Astro.params;
 </Layout>
 
 <style>
-  .scope-form-container {
-    max-width: 600px;
+  .scope-container {
+    max-width: 800px;
     margin: 0 auto;
+  }
+
+  .scope-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .scope-header h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  .scope-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .node-status {
+    background: var(--bg-secondary, rgba(255, 255, 255, 0.05));
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .status-dot.green {
+    background-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+  }
+
+  .status-dot.yellow {
+    background-color: #ffc107;
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
+  }
+
+  .status-dot.red {
+    background-color: #dc3545;
+    box-shadow: 0 0 8px rgba(220, 53, 69, 0.6);
+  }
+
+  .status-text {
+    color: var(--an-white, #e7e6e2);
+    font-size: 1rem;
+  }
+
+  .scope-details {
+    background: var(--bg-secondary, rgba(255, 255, 255, 0.05));
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .detail-section {
+    margin-bottom: 2rem;
+  }
+
+  .detail-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .detail-section h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    color: var(--an-cyan, #69f5ff);
+    border-bottom: 2px solid rgba(105, 245, 255, 0.3);
+    padding-bottom: 0.5rem;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .detail-item label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--an-cyan, #69f5ff);
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+
+  .detail-item p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--an-white, #e7e6e2);
   }
 
   .scope-form {
@@ -217,50 +373,18 @@ const { id } = Astro.params;
     color: #6fdc8c;
   }
 
-  .node-status {
-    background: var(--bg-secondary, rgba(255, 255, 255, 0.05));
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-  }
-
-  .status-indicator {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .status-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    flex-shrink: 0;
-  }
-
-  .status-dot.green {
-    background-color: #28a745;
-    box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
-  }
-
-  .status-dot.yellow {
-    background-color: #ffc107;
-    box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
-  }
-
-  .status-dot.red {
-    background-color: #dc3545;
-    box-shadow: 0 0 8px rgba(220, 53, 69, 0.6);
-  }
-
-  .status-text {
-    color: var(--an-white, #e7e6e2);
-    font-size: 1rem;
-  }
-
   @media (max-width: 600px) {
     .form-row {
       grid-template-columns: 1fr;
+    }
+    
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .scope-header {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>
@@ -274,6 +398,11 @@ const { id } = Astro.params;
   let nodeStatusDiv = null;
   let statusDot = null;
   let statusText = null;
+  let scopeDetails = null;
+  let editBtn = null;
+  let cancelEditBtn = null;
+  let cancelFormBtn = null;
+  let currentScope = null;
 
   function initElements() {
     form = document.getElementById('scope-form');
@@ -283,6 +412,10 @@ const { id } = Astro.params;
     nodeStatusDiv = document.getElementById('node-status');
     statusDot = document.getElementById('status-dot');
     statusText = document.getElementById('status-text');
+    scopeDetails = document.getElementById('scope-details');
+    editBtn = document.getElementById('edit-btn');
+    cancelEditBtn = document.getElementById('cancel-edit-btn');
+    cancelFormBtn = document.getElementById('cancel-form-btn');
   }
 
   function formatTimeAgo(date) {
@@ -304,50 +437,39 @@ const { id } = Astro.params;
     }
   }
 
+  function formatDishSize(mm) {
+    const inches = (mm / 25.4).toFixed(1);
+    return `${mm.toFixed(0)} mm (${inches}")`;
+  }
+
   function updateNodeStatus(scope) {
     if (!nodeStatusDiv || !statusDot || !statusText) {
-      console.warn('Status elements not found, skipping status update');
       return;
     }
 
-    if (!scope) {
-      console.warn('No scope data provided to updateNodeStatus');
-      return;
-    }
-
-    console.log('Updating node status for scope:', scope);
-    console.log('lastHeartbeatAt:', scope.lastHeartbeatAt);
-
-    if (!scope.lastHeartbeatAt) {
-      // No heartbeat data yet
-      console.log('No heartbeat data found, hiding status');
+    if (!scope || !scope.lastHeartbeatAt) {
       nodeStatusDiv.style.display = 'none';
       return;
     }
 
-    // Handle MongoDB date serialization (comes as ISO string in JSON)
     const lastHeartbeat = new Date(scope.lastHeartbeatAt);
     if (isNaN(lastHeartbeat.getTime())) {
-      console.error('Invalid date:', scope.lastHeartbeatAt);
       nodeStatusDiv.style.display = 'none';
       return;
     }
 
     const now = new Date();
     const diffSeconds = Math.floor((now.getTime() - lastHeartbeat.getTime()) / 1000);
-    console.log('Time since last heartbeat:', diffSeconds, 'seconds');
 
-    // Determine status color
     let statusClass = 'red';
     if (diffSeconds <= 60) {
       statusClass = 'green';
-    } else if (diffSeconds <= 300) { // 5 minutes
+    } else if (diffSeconds <= 300) {
       statusClass = 'yellow';
     }
 
     statusDot.className = `status-dot ${statusClass}`;
 
-    // Build status text
     const timeAgo = formatTimeAgo(lastHeartbeat);
     let statusLine = `${scope.name}`;
     
@@ -363,9 +485,75 @@ const { id } = Astro.params;
     nodeStatusDiv.style.display = 'block';
   }
 
+  function showDetails(scope) {
+    currentScope = scope;
+    
+    // Update header
+    document.getElementById('scope-name').textContent = scope.name;
+    
+    // Update details view
+    document.getElementById('detail-latitude').textContent = scope.latitude.toFixed(6) + '°';
+    document.getElementById('detail-longitude').textContent = scope.longitude.toFixed(6) + '°';
+    document.getElementById('detail-country').textContent = scope.country || '-';
+    document.getElementById('detail-dish-size').textContent = formatDishSize(scope.dishSizeMm);
+    
+    // Update heartbeat info if available
+    const heartbeatSection = document.getElementById('heartbeat-section');
+    if (scope.lastRunIndex !== undefined || scope.lastCapture) {
+      heartbeatSection.style.display = 'block';
+      let runInfo = '-';
+      if (scope.lastRunIndex !== undefined && scope.totalRuns !== undefined) {
+        runInfo = `Run ${scope.lastRunIndex} / ${scope.totalRuns}`;
+      } else if (scope.lastRunIndex !== undefined) {
+        runInfo = `Run ${scope.lastRunIndex}`;
+      }
+      document.getElementById('detail-run-info').textContent = runInfo;
+      document.getElementById('detail-last-capture').textContent = scope.lastCapture || '-';
+    } else {
+      heartbeatSection.style.display = 'none';
+    }
+    
+    // Show details, hide form
+    if (scopeDetails) scopeDetails.style.display = 'block';
+    if (form) form.style.display = 'none';
+    if (editBtn) editBtn.style.display = 'inline-block';
+    if (cancelEditBtn) cancelEditBtn.style.display = 'none';
+    
+    // Update status
+    updateNodeStatus(scope);
+  }
+
+  function enterEditMode() {
+    if (!currentScope) return;
+    
+    // Populate form
+    document.getElementById('name').value = currentScope.name || '';
+    document.getElementById('latitude').value = currentScope.latitude || '';
+    document.getElementById('longitude').value = currentScope.longitude || '';
+    document.getElementById('dishSize').value = currentScope.dishSizeMm || '';
+    document.getElementById('dishUnit').value = 'mm';
+    
+    // Show form, hide details
+    if (scopeDetails) scopeDetails.style.display = 'none';
+    if (form) form.style.display = 'block';
+    if (editBtn) editBtn.style.display = 'none';
+    if (cancelEditBtn) cancelEditBtn.style.display = 'inline-block';
+  }
+
+  function exitEditMode() {
+    // Show details, hide form
+    if (scopeDetails) scopeDetails.style.display = 'block';
+    if (form) form.style.display = 'none';
+    if (editBtn) editBtn.style.display = 'inline-block';
+    if (cancelEditBtn) cancelEditBtn.style.display = 'none';
+    
+    // Clear form errors
+    if (errorDiv) errorDiv.style.display = 'none';
+    if (successDiv) successDiv.style.display = 'none';
+  }
+
   async function loadScope() {
     if (!scopeId) {
-      console.error('No scope ID provided');
       if (loadingDiv) {
         loadingDiv.textContent = 'Error: No scope ID';
       }
@@ -373,7 +561,6 @@ const { id } = Astro.params;
     }
 
     try {
-      console.log('Loading scope:', scopeId);
       const response = await fetch(`/api/scopes/${scopeId}`);
       
       if (!response.ok) {
@@ -383,41 +570,14 @@ const { id } = Astro.params;
       
       const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to load scope');
-      }
-
       if (!data.scope) {
         throw new Error('Scope data not found in response');
       }
 
       const scope = data.scope;
-      console.log('Loaded scope data:', scope);
-      console.log('Scope heartbeat fields:', {
-        lastHeartbeatAt: scope.lastHeartbeatAt,
-        lastRunIndex: scope.lastRunIndex,
-        totalRuns: scope.totalRuns,
-        lastCapture: scope.lastCapture
-      });
-
-      // Update node status display
-      updateNodeStatus(scope);
-
-      // Populate form
-      const nameInput = document.getElementById('name');
-      const latInput = document.getElementById('latitude');
-      const lonInput = document.getElementById('longitude');
-      const dishSizeInput = document.getElementById('dishSize');
-      const dishUnitSelect = document.getElementById('dishUnit');
-
-      if (nameInput) nameInput.value = scope.name || '';
-      if (latInput) latInput.value = scope.latitude?.toString() || '';
-      if (lonInput) lonInput.value = scope.longitude?.toString() || '';
-      if (dishSizeInput) dishSizeInput.value = scope.dishSizeMm?.toString() || '';
-      if (dishUnitSelect) dishUnitSelect.value = 'mm';
+      showDetails(scope);
 
       if (loadingDiv) loadingDiv.style.display = 'none';
-      if (form) form.style.display = 'block';
     } catch (error) {
       console.error('Error loading scope:', error);
       if (loadingDiv) {
@@ -440,54 +600,61 @@ const { id } = Astro.params;
   }
 
   function setupForm() {
+    editBtn?.addEventListener('click', enterEditMode);
+    cancelEditBtn?.addEventListener('click', exitEditMode);
+    cancelFormBtn?.addEventListener('click', exitEditMode);
+    
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-    if (errorDiv) errorDiv.style.display = 'none';
-    if (successDiv) successDiv.style.display = 'none';
+      if (errorDiv) errorDiv.style.display = 'none';
+      if (successDiv) successDiv.style.display = 'none';
 
-    const formData = new FormData(form);
-    const data = {
-      name: formData.get('name'),
-      latitude: formData.get('latitude'),
-      longitude: formData.get('longitude'),
-      dishSize: formData.get('dishSize'),
-      dishUnit: formData.get('dishUnit'),
-    };
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        latitude: formData.get('latitude'),
+        longitude: formData.get('longitude'),
+        dishSize: formData.get('dishSize'),
+        dishUnit: formData.get('dishUnit'),
+      };
 
-    try {
-      const response = await fetch(`/api/scopes/${scopeId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      try {
+        const response = await fetch(`/api/scopes/${scopeId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      if (response.ok) {
-        if (successDiv) {
-          successDiv.textContent = 'Scope updated successfully! Redirecting...';
-          successDiv.style.display = 'block';
+        if (response.ok) {
+          // Reload scope data
+          await loadScope();
+          exitEditMode();
+          
+          if (successDiv) {
+            successDiv.textContent = 'Scope updated successfully!';
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+              if (successDiv) successDiv.style.display = 'none';
+            }, 3000);
+          }
+        } else {
+          if (errorDiv) {
+            errorDiv.textContent = result.error || 'Failed to update scope';
+            errorDiv.style.display = 'block';
+          }
         }
-        setTimeout(() => {
-          window.location.href = '/dashboard';
-        }, 1000);
-      } else {
+      } catch (error) {
+        console.error('Error:', error);
         if (errorDiv) {
-          errorDiv.textContent = result.error || 'Failed to update scope';
+          errorDiv.textContent = 'Network error. Please try again.';
           errorDiv.style.display = 'block';
         }
       }
-    } catch (error) {
-      console.error('Error:', error);
-      if (errorDiv) {
-        errorDiv.textContent = 'Network error. Please try again.';
-        errorDiv.style.display = 'block';
-      }
-    }
-  });
+    });
   }
 </script>
-
