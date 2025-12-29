@@ -267,16 +267,16 @@ const { id } = Astro.params;
 
 <script define:vars={{ scopeId: id }}>
   // Wait for DOM to be ready
-  let form: HTMLFormElement | null = null;
-  let loadingDiv: HTMLElement | null = null;
-  let errorDiv: HTMLElement | null = null;
-  let successDiv: HTMLElement | null = null;
-  let nodeStatusDiv: HTMLElement | null = null;
-  let statusDot: HTMLElement | null = null;
-  let statusText: HTMLElement | null = null;
+  let form = null;
+  let loadingDiv = null;
+  let errorDiv = null;
+  let successDiv = null;
+  let nodeStatusDiv = null;
+  let statusDot = null;
+  let statusText = null;
 
   function initElements() {
-    form = document.getElementById('scope-form') as HTMLFormElement;
+    form = document.getElementById('scope-form');
     loadingDiv = document.getElementById('loading');
     errorDiv = document.getElementById('form-error');
     successDiv = document.getElementById('form-success');
@@ -285,7 +285,7 @@ const { id } = Astro.params;
     statusText = document.getElementById('status-text');
   }
 
-  function formatTimeAgo(date: Date): string {
+  function formatTimeAgo(date) {
     const now = new Date();
     const diffMs = now.getTime() - date.getTime();
     const diffSeconds = Math.floor(diffMs / 1000);
@@ -304,7 +304,7 @@ const { id } = Astro.params;
     }
   }
 
-  function updateNodeStatus(scope: any) {
+  function updateNodeStatus(scope) {
     if (!nodeStatusDiv || !statusDot || !statusText) {
       console.warn('Status elements not found, skipping status update');
       return;
@@ -404,11 +404,11 @@ const { id } = Astro.params;
       updateNodeStatus(scope);
 
       // Populate form
-      const nameInput = document.getElementById('name') as HTMLInputElement;
-      const latInput = document.getElementById('latitude') as HTMLInputElement;
-      const lonInput = document.getElementById('longitude') as HTMLInputElement;
-      const dishSizeInput = document.getElementById('dishSize') as HTMLInputElement;
-      const dishUnitSelect = document.getElementById('dishUnit') as HTMLSelectElement;
+      const nameInput = document.getElementById('name');
+      const latInput = document.getElementById('latitude');
+      const lonInput = document.getElementById('longitude');
+      const dishSizeInput = document.getElementById('dishSize');
+      const dishUnitSelect = document.getElementById('dishUnit');
 
       if (nameInput) nameInput.value = scope.name || '';
       if (latInput) latInput.value = scope.latitude?.toString() || '';
@@ -418,7 +418,7 @@ const { id } = Astro.params;
 
       if (loadingDiv) loadingDiv.style.display = 'none';
       if (form) form.style.display = 'block';
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error loading scope:', error);
       if (loadingDiv) {
         loadingDiv.textContent = `Error: ${error.message}`;
