@@ -57,6 +57,27 @@ export interface Scope {
   dishSizeMm: number;
   createdAt: Date;
   updatedAt: Date;
+  // Cached heartbeat status fields
+  lastHeartbeatAt?: Date;
+  lastSeenClientTs?: string;
+  lastRunIndex?: number;
+  totalRuns?: number;
+  lastCapture?: string;
+}
+
+/**
+ * Node heartbeat document type
+ */
+export interface NodeHeartbeat {
+  _id?: ObjectId;
+  nodeId: string;
+  receivedAt: Date;
+  ts: string; // Client timestamp
+  uptime_s?: number;
+  load?: string;
+  run_index?: number;
+  total_runs?: number;
+  last_capture?: string;
 }
 
 /**
@@ -76,6 +97,14 @@ export async function getScopesCollection(): Promise<Collection<Scope>> {
 }
 
 /**
+ * Get node heartbeats collection
+ */
+export async function getNodeHeartbeatsCollection(): Promise<Collection<NodeHeartbeat>> {
+  const db = await getDatabase();
+  return db.collection<NodeHeartbeat>('node_heartbeats');
+}
+
+/**
  * Initialize database indexes
  * Call this once during setup
  */
@@ -90,6 +119,12 @@ export async function initializeIndexes(): Promise<void> {
 
     // Create indexes for scopes
     await scopes.createIndex({ userId: 1 });
+    await scopes.createIndex({ name: 1 }); // For nodeId lookup
+
+    // Create indexes for node heartbeats
+    const heartbeats = await getNodeHeartbeatsCollection();
+    await heartbeats.createIndex({ nodeId: 1, receivedAt: -1 });
+    await heartbeats.createIndex({ receivedAt: -1 }); // For cleanup queries
 
     console.log('Database indexes initialized successfully');
   } catch (error) {

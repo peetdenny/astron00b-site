@@ -16,6 +16,13 @@ const { id } = Astro.params;
   <div class="scope-form-container">
     <h1>Edit Scope</h1>
     
+    <div id="node-status" class="node-status" style="display: none;">
+      <div class="status-indicator">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text" class="status-text"></span>
+      </div>
+    </div>
+    
     <div id="loading">Loading scope...</div>
     
     <form id="scope-form" class="scope-form" style="display: none;">
@@ -210,6 +217,47 @@ const { id } = Astro.params;
     color: #6fdc8c;
   }
 
+  .node-status {
+    background: var(--bg-secondary, rgba(255, 255, 255, 0.05));
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .status-dot.green {
+    background-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+  }
+
+  .status-dot.yellow {
+    background-color: #ffc107;
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
+  }
+
+  .status-dot.red {
+    background-color: #dc3545;
+    box-shadow: 0 0 8px rgba(220, 53, 69, 0.6);
+  }
+
+  .status-text {
+    color: var(--an-white, #e7e6e2);
+    font-size: 1rem;
+  }
+
   @media (max-width: 600px) {
     .form-row {
       grid-template-columns: 1fr;
@@ -224,6 +272,67 @@ const { id } = Astro.params;
   const loadingDiv = document.getElementById('loading');
   const errorDiv = document.getElementById('form-error');
   const successDiv = document.getElementById('form-success');
+  const nodeStatusDiv = document.getElementById('node-status');
+  const statusDot = document.getElementById('status-dot');
+  const statusText = document.getElementById('status-text');
+
+  function formatTimeAgo(date: Date): string {
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffSeconds = Math.floor(diffMs / 1000);
+    const diffMinutes = Math.floor(diffSeconds / 60);
+    const diffHours = Math.floor(diffMinutes / 60);
+    const diffDays = Math.floor(diffHours / 24);
+
+    if (diffSeconds < 60) {
+      return `${diffSeconds}s ago`;
+    } else if (diffMinutes < 60) {
+      return `${diffMinutes}m ago`;
+    } else if (diffHours < 24) {
+      return `${diffHours}h ago`;
+    } else {
+      return `${diffDays}d ago`;
+    }
+  }
+
+  function updateNodeStatus(scope: any) {
+    if (!nodeStatusDiv || !statusDot || !statusText) return;
+
+    if (!scope.lastHeartbeatAt) {
+      // No heartbeat data yet
+      nodeStatusDiv.style.display = 'none';
+      return;
+    }
+
+    const lastHeartbeat = new Date(scope.lastHeartbeatAt);
+    const now = new Date();
+    const diffSeconds = Math.floor((now.getTime() - lastHeartbeat.getTime()) / 1000);
+
+    // Determine status color
+    let statusClass = 'red';
+    if (diffSeconds <= 60) {
+      statusClass = 'green';
+    } else if (diffSeconds <= 300) { // 5 minutes
+      statusClass = 'yellow';
+    }
+
+    statusDot.className = `status-dot ${statusClass}`;
+
+    // Build status text
+    const timeAgo = formatTimeAgo(lastHeartbeat);
+    let statusLine = `${scope.name}`;
+    
+    if (scope.lastRunIndex !== undefined && scope.totalRuns !== undefined) {
+      statusLine += ` — Run ${scope.lastRunIndex} / ${scope.totalRuns}`;
+    } else if (scope.lastRunIndex !== undefined) {
+      statusLine += ` — Run ${scope.lastRunIndex}`;
+    }
+    
+    statusLine += ` — Last seen ${timeAgo}`;
+    
+    statusText.textContent = statusLine;
+    nodeStatusDiv.style.display = 'block';
+  }
 
   async function loadScope() {
     try {
@@ -236,6 +345,9 @@ const { id } = Astro.params;
 
       const scope = data.scope;
 
+      // Update node status display
+      updateNodeStatus(scope);
+
       // Populate form
       (document.getElementById('name') as HTMLInputElement).value = scope.name;
       (document.getElementById('latitude') as HTMLInputElement).value = scope.latitude;
@@ -245,7 +357,7 @@ const { id } = Astro.params;
 
       if (loadingDiv) loadingDiv.style.display = 'none';
       if (form) form.style.display = 'block';
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error loading scope:', error);
       if (loadingDiv) {
         loadingDiv.textContent = `Error: ${error.message}`;
