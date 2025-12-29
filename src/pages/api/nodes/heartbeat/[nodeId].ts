@@ -45,9 +45,11 @@ export const POST: APIRoute = async ({ params, request }) => {
       });
     }
 
-    // Look up scope by nodeId (matching the name field)
+    // Look up scope by nodeId (matching the name field, case-insensitive)
     const scopes = await getScopesCollection();
-    const scope = await scopes.findOne({ name: nodeId });
+    const scope = await scopes.findOne({ 
+      name: { $regex: new RegExp(`^${nodeId}$`, 'i') } 
+    });
 
     if (!scope) {
       return new Response(JSON.stringify({ error: 'Scope not found' }), {

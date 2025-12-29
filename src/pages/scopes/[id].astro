@@ -298,15 +298,27 @@ const { id } = Astro.params;
   function updateNodeStatus(scope: any) {
     if (!nodeStatusDiv || !statusDot || !statusText) return;
 
+    console.log('Updating node status for scope:', scope);
+    console.log('lastHeartbeatAt:', scope.lastHeartbeatAt);
+
     if (!scope.lastHeartbeatAt) {
       // No heartbeat data yet
+      console.log('No heartbeat data found, hiding status');
       nodeStatusDiv.style.display = 'none';
       return;
     }
 
+    // Handle MongoDB date serialization (comes as ISO string in JSON)
     const lastHeartbeat = new Date(scope.lastHeartbeatAt);
+    if (isNaN(lastHeartbeat.getTime())) {
+      console.error('Invalid date:', scope.lastHeartbeatAt);
+      nodeStatusDiv.style.display = 'none';
+      return;
+    }
+
     const now = new Date();
     const diffSeconds = Math.floor((now.getTime() - lastHeartbeat.getTime()) / 1000);
+    console.log('Time since last heartbeat:', diffSeconds, 'seconds');
 
     // Determine status color
     let statusClass = 'red';
@@ -344,6 +356,13 @@ const { id } = Astro.params;
       }
 
       const scope = data.scope;
+      console.log('Loaded scope data:', scope);
+      console.log('Scope heartbeat fields:', {
+        lastHeartbeatAt: scope.lastHeartbeatAt,
+        lastRunIndex: scope.lastRunIndex,
+        totalRuns: scope.totalRuns,
+        lastCapture: scope.lastCapture
+      });
 
       // Update node status display
       updateNodeStatus(scope);

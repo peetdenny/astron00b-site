@@ -148,12 +148,48 @@ if (!user) {
     margin: 0 0 0.5rem 0;
     font-size: 1.2rem;
     color: var(--an-cyan);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .scope-info p {
     margin: 0.25rem 0;
     font-size: 0.9rem;
     color: var(--an-white);
+  }
+
+  .scope-status {
+    color: var(--an-cyan) !important;
+    font-weight: 500;
+  }
+
+  .status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .status-dot.green {
+    background-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+  }
+
+  .status-dot.yellow {
+    background-color: #ffc107;
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
+  }
+
+  .status-dot.red {
+    background-color: #dc3545;
+    box-shadow: 0 0 8px rgba(220, 53, 69, 0.6);
+  }
+
+  .status-dot.gray {
+    background-color: #6c757d;
+    opacity: 0.5;
   }
 
   .scope-actions {
@@ -200,6 +236,61 @@ if (!user) {
 <script>
   import { formatDishSize } from '../lib/units';
 
+  function formatTimeAgo(date: Date): string {
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffSeconds = Math.floor(diffMs / 1000);
+    const diffMinutes = Math.floor(diffSeconds / 60);
+    const diffHours = Math.floor(diffMinutes / 60);
+    const diffDays = Math.floor(diffHours / 24);
+
+    if (diffSeconds < 60) {
+      return `${diffSeconds}s ago`;
+    } else if (diffMinutes < 60) {
+      return `${diffMinutes}m ago`;
+    } else if (diffHours < 24) {
+      return `${diffHours}h ago`;
+    } else {
+      return `${diffDays}d ago`;
+    }
+  }
+
+  function getStatusDot(scope: any): string {
+    if (!scope.lastHeartbeatAt) {
+      return '<span class="status-dot gray" title="No heartbeat data"></span>';
+    }
+
+    const lastHeartbeat = new Date(scope.lastHeartbeatAt);
+    const now = new Date();
+    const diffSeconds = Math.floor((now.getTime() - lastHeartbeat.getTime()) / 1000);
+
+    if (diffSeconds <= 60) {
+      return '<span class="status-dot green" title="Online"></span>';
+    } else if (diffSeconds <= 300) { // 5 minutes
+      return '<span class="status-dot yellow" title="Warning"></span>';
+    } else {
+      return '<span class="status-dot red" title="Offline"></span>';
+    }
+  }
+
+  function getStatusText(scope: any): string {
+    if (!scope.lastHeartbeatAt) {
+      return '';
+    }
+
+    const lastHeartbeat = new Date(scope.lastHeartbeatAt);
+    const timeAgo = formatTimeAgo(lastHeartbeat);
+    let status = `Last seen ${timeAgo}`;
+    
+    if (scope.lastRunIndex !== undefined && scope.totalRuns !== undefined) {
+      status = `Run ${scope.lastRunIndex} / ${scope.totalRuns} — ${status}`;
+    } else if (scope.lastRunIndex !== undefined) {
+      status = `Run ${scope.lastRunIndex} — ${status}`;
+    }
+    
+    return status;
+  }
+
   async function loadScopes() {
     const container = document.getElementById('scopes-container');
     if (!container) return;
@@ -222,15 +313,18 @@ if (!user) {
         
         const dishSizeFormatted = formatDishSize(scope.dishSizeMm, 'mm');
         const dishSizeInches = formatDishSize(scope.dishSizeMm, 'inches');
+        const statusDot = getStatusDot(scope);
+        const statusText = getStatusText(scope);
 
         li.innerHTML = `
           <div class="scope-info">
-            <h3>${escapeHtml(scope.name)}</h3>
+            <h3>${statusDot} ${escapeHtml(scope.name)}</h3>
             <p>Location: ${scope.latitude.toFixed(4)}°, ${scope.longitude.toFixed(4)}° (${escapeHtml(scope.country)})</p>
             <p>Dish: ${dishSizeFormatted} (${dishSizeInches})</p>
+            ${statusText ? `<p class="scope-status">${statusText}</p>` : ''}
           </div>
           <div class="scope-actions">
-            <a href="/scopes/${scope._id}">Edit</a>
+            <a href="/scopes/${scope._id}">View</a>
             <button onclick="deleteScope('${scope._id}', '${escapeHtml(scope.name)}')">Delete</button>
           </div>
         `;
