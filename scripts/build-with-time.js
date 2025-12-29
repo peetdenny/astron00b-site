@@ -3,9 +3,9 @@
  * Build script that sets BUILD_TIME environment variable
  */
 
-process.env.BUILD_TIME = new Date().toISOString();
+import { spawn } from 'child_process';
 
-const { spawn } = require('child_process');
+process.env.BUILD_TIME = new Date().toISOString();
 
 const child = spawn('astro', ['build'], {
   stdio: 'inherit',
