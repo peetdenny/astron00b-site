@@ -266,15 +266,24 @@ const { id } = Astro.params;
 </style>
 
 <script define:vars={{ scopeId: id }}>
-  import { mmToInches } from '../../lib/units';
+  // Wait for DOM to be ready
+  let form: HTMLFormElement | null = null;
+  let loadingDiv: HTMLElement | null = null;
+  let errorDiv: HTMLElement | null = null;
+  let successDiv: HTMLElement | null = null;
+  let nodeStatusDiv: HTMLElement | null = null;
+  let statusDot: HTMLElement | null = null;
+  let statusText: HTMLElement | null = null;
 
-  const form = document.getElementById('scope-form');
-  const loadingDiv = document.getElementById('loading');
-  const errorDiv = document.getElementById('form-error');
-  const successDiv = document.getElementById('form-success');
-  const nodeStatusDiv = document.getElementById('node-status');
-  const statusDot = document.getElementById('status-dot');
-  const statusText = document.getElementById('status-text');
+  function initElements() {
+    form = document.getElementById('scope-form') as HTMLFormElement;
+    loadingDiv = document.getElementById('loading');
+    errorDiv = document.getElementById('form-error');
+    successDiv = document.getElementById('form-success');
+    nodeStatusDiv = document.getElementById('node-status');
+    statusDot = document.getElementById('status-dot');
+    statusText = document.getElementById('status-text');
+  }
 
   function formatTimeAgo(date: Date): string {
     const now = new Date();
@@ -296,7 +305,15 @@ const { id } = Astro.params;
   }
 
   function updateNodeStatus(scope: any) {
-    if (!nodeStatusDiv || !statusDot || !statusText) return;
+    if (!nodeStatusDiv || !statusDot || !statusText) {
+      console.warn('Status elements not found, skipping status update');
+      return;
+    }
+
+    if (!scope) {
+      console.warn('No scope data provided to updateNodeStatus');
+      return;
+    }
 
     console.log('Updating node status for scope:', scope);
     console.log('lastHeartbeatAt:', scope.lastHeartbeatAt);
@@ -347,12 +364,31 @@ const { id } = Astro.params;
   }
 
   async function loadScope() {
+    if (!scopeId) {
+      console.error('No scope ID provided');
+      if (loadingDiv) {
+        loadingDiv.textContent = 'Error: No scope ID';
+      }
+      return;
+    }
+
     try {
+      console.log('Loading scope:', scopeId);
       const response = await fetch(`/api/scopes/${scopeId}`);
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        throw new Error(errorData.error || `HTTP ${response.status}`);
+      }
+      
       const data = await response.json();
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to load scope');
+      }
+
+      if (!data.scope) {
+        throw new Error('Scope data not found in response');
       }
 
       const scope = data.scope;
@@ -368,11 +404,17 @@ const { id } = Astro.params;
       updateNodeStatus(scope);
 
       // Populate form
-      (document.getElementById('name') as HTMLInputElement).value = scope.name;
-      (document.getElementById('latitude') as HTMLInputElement).value = scope.latitude;
-      (document.getElementById('longitude') as HTMLInputElement).value = scope.longitude;
-      (document.getElementById('dishSize') as HTMLInputElement).value = scope.dishSizeMm;
-      (document.getElementById('dishUnit') as HTMLSelectElement).value = 'mm';
+      const nameInput = document.getElementById('name') as HTMLInputElement;
+      const latInput = document.getElementById('latitude') as HTMLInputElement;
+      const lonInput = document.getElementById('longitude') as HTMLInputElement;
+      const dishSizeInput = document.getElementById('dishSize') as HTMLInputElement;
+      const dishUnitSelect = document.getElementById('dishUnit') as HTMLSelectElement;
+
+      if (nameInput) nameInput.value = scope.name || '';
+      if (latInput) latInput.value = scope.latitude?.toString() || '';
+      if (lonInput) lonInput.value = scope.longitude?.toString() || '';
+      if (dishSizeInput) dishSizeInput.value = scope.dishSizeMm?.toString() || '';
+      if (dishUnitSelect) dishUnitSelect.value = 'mm';
 
       if (loadingDiv) loadingDiv.style.display = 'none';
       if (form) form.style.display = 'block';
@@ -384,8 +426,22 @@ const { id } = Astro.params;
     }
   }
 
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initElements();
+      setupForm();
+      loadScope();
+    });
+  } else {
+    initElements();
+    setupForm();
+    loadScope();
+  }
+
+  function setupForm() {
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
     if (errorDiv) errorDiv.style.display = 'none';
     if (successDiv) successDiv.style.display = 'none';
@@ -432,7 +488,6 @@ const { id } = Astro.params;
       }
     }
   });
-
-  loadScope();
+  }
 </script>
 
