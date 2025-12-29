@@ -403,6 +403,7 @@ const { id } = Astro.params;
   let cancelEditBtn = null;
   let cancelFormBtn = null;
   let currentScope = null;
+  let pollInterval = null;
 
   function initElements() {
     form = document.getElementById('scope-form');
@@ -526,6 +527,9 @@ const { id } = Astro.params;
   function enterEditMode() {
     if (!currentScope) return;
     
+    // Stop polling when entering edit mode
+    stopPolling();
+    
     // Populate form
     document.getElementById('name').value = currentScope.name || '';
     document.getElementById('latitude').value = currentScope.latitude || '';
@@ -550,11 +554,34 @@ const { id } = Astro.params;
     // Clear form errors
     if (errorDiv) errorDiv.style.display = 'none';
     if (successDiv) successDiv.style.display = 'none';
+    
+    // Resume polling when exiting edit mode
+    startPolling();
   }
 
-  async function loadScope() {
+  function startPolling() {
+    // Stop any existing polling
+    stopPolling();
+    
+    // Only poll if we're in view mode (details are visible)
+    if (scopeDetails && scopeDetails.style.display !== 'none') {
+      // Poll every 10 seconds
+      pollInterval = setInterval(() => {
+        loadScope(true); // Pass true to indicate this is a poll (silent update)
+      }, 10000);
+    }
+  }
+
+  function stopPolling() {
+    if (pollInterval) {
+      clearInterval(pollInterval);
+      pollInterval = null;
+    }
+  }
+
+  async function loadScope(isPoll = false) {
     if (!scopeId) {
-      if (loadingDiv) {
+      if (loadingDiv && !isPoll) {
         loadingDiv.textContent = 'Error: No scope ID';
       }
       return;
@@ -577,12 +604,21 @@ const { id } = Astro.params;
       const scope = data.scope;
       showDetails(scope);
 
-      if (loadingDiv) loadingDiv.style.display = 'none';
+      if (loadingDiv && !isPoll) {
+        loadingDiv.style.display = 'none';
+      }
+      
+      // Start polling after initial load (only if not already polling)
+      if (!isPoll && !pollInterval) {
+        startPolling();
+      }
     } catch (error) {
       console.error('Error loading scope:', error);
-      if (loadingDiv) {
+      if (loadingDiv && !isPoll) {
         loadingDiv.textContent = `Error: ${error.message}`;
       }
+      // Stop polling on error
+      stopPolling();
     }
   }
 
@@ -598,6 +634,11 @@ const { id } = Astro.params;
     setupForm();
     loadScope();
   }
+
+  // Cleanup: stop polling when page is unloaded
+  window.addEventListener('beforeunload', () => {
+    stopPolling();
+  });
 
   function setupForm() {
     editBtn?.addEventListener('click', enterEditMode);
@@ -631,7 +672,7 @@ const { id } = Astro.params;
         const result = await response.json();
 
         if (response.ok) {
-          // Reload scope data
+          // Reload scope data (this will start polling again)
           await loadScope();
           exitEditMode();
           
